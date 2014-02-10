@@ -1,0 +1,21 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	background: #FFF;
+}
+
+#wrapper{
+	background:#09F;
+	width: auto;
+	height: auto;
+	margin: 0 auto;
+	border-top-width:thick;
+}
+
+#h1{
+	font:Tahoma, Geneva, sans-serif;
+	font-size:36px;
+	text-align:center;
+	font-weight:bold;
+	}
