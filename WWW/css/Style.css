@@ -32,8 +32,6 @@ body{
 	height:50;
 	width:50px;
 	font-weight:bold;
-    text-decoration: none;
-    cursor: pointer;
 	border-radius:6px;
 	border-color:#000;
 	margin-left:5px;
@@ -49,8 +47,6 @@ body{
 	height:50;
 	width:50px;
 	font-weight:bold;
-    text-decoration: none;
-    cursor: pointer;
 	border-radius:6px;
 	border-color:#000;
 	margin-left:5px;
