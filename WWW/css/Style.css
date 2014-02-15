@@ -35,6 +35,7 @@ body{
 
 	
 #submit {
+	float:left;
 	background-color:#09F;
 	-moz-border-radius:8px;
 	-webkit-border-radius:8px;
