@@ -35,20 +35,17 @@ body{
 
 	
 #submit {
-	float:left;
-    background-color: #09F;
-    color:#000;
-    font-size: 30px;
-	height:50;
-	width:auto;
-	font-weight:bold;
-	border-radius:6px;
-	border-color:#000;
-	margin-left:5px;
-	margin-top:5px;
+	background-color:#09F;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	border-radius:8px;
+	border:2px solid #000;
+	display:inline-block;
+	cursor:pointer;
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size:20px;
+	padding:12px 11px;
 }
-
-
 
 #submit:hover {
     background:#06F;
