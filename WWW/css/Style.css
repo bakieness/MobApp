@@ -16,13 +16,23 @@ body{
 
 #h1{
 	font:Tahoma, Geneva, sans-serif;
-	font-size:36px;
+	font-size:30px;
 	text-align:center;
 	margin-left:70px;
 	margin-right:70px;
 	margin-bottom:13px;
 	font-weight:bold;
 	}
+	
+#h2{
+	font:Tahoma, Geneva, sans-serif;
+	font-size:20px;
+	text-align:center;
+	margin-left:70px;
+	margin-right:70px;
+	margin-bottom:13px;
+	}
+
 	
 #submit {
 	float:left;
@@ -50,4 +60,26 @@ body{
 	margin-right:30px;
 	margin-top:20px;
 	height:140px;
+}
+
+#form {
+	background:#FFF;
+	margin-left:30px;
+	margin-right:30px;
+	margin-top:20px;
+	height:340px;
+}
+
+#dropdown {
+	width: 190px;
+  	margin: 50px auto;
+  	padding: 5px;
+ 	border: 1px solid black;
+ 	position: relative;
+  	-webkit-border-radius: 10px;
+  	-moz-border-radius: 10px;
+  	-ms-border-radius: 10px;
+  	-o-border-radius: 10px;
+  	border-radius: 10px;
+	background:#999;
 }
