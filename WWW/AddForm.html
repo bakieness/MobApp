@@ -4,6 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
 <link href="css/Style.css" rel="stylesheet" type="text/css" />
+<script src="js/index.js"></script>
 </head>
 <body>
 <div id="wrapper">
@@ -14,18 +15,21 @@
 
 <div id="form">
 
+<form action="index.html" method="get">
 <div id="h2">Title</div>
-<input type="text" name="event" id="textbox"/>
+<input type="text" name="event" id="event" onchange="setVars()"/>
 
 <div id="h2">Type</div>
 <div id="dropdown">
-<select>
-  <option value="Lecture">Lecture</option>
-  <option value="Assignment">Assignment</option>
-  <option value="Social">Social</option>
-  <option value="Other">Other</option>
+<select name="type" id="type" onchange="setVars()">
+	<option value="Assignment">Assignment</option>
+	<option value="Lecture">Lecture</option>
+  	<option value="Social">Social</option>
+  	<option value="Other">Other</option>
 </select>
 </div>
+<input type="submit" value="Submit">
+</form>
 </div>
 </body>
 </html>
