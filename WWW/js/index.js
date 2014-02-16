@@ -28,10 +28,20 @@ function Sfunction()
 	var $name = window.localStorage.getItem("type");
 	if ($type != null)
 		{
-		document.getElementById("p1").innerHTML=$type;
+			document.getElementById("p1").innerHTML=$type;
 		}
 	if ($name != null)
 		{
-		document.getElementById("p2").innerHTML=$name;
+			document.getElementById("p2").innerHTML=$name;
 		}
+}
+
+function createDialog() 
+{
+	navigator.notification.confirm(
+		'What do you think of this dialog?',  // message
+    	dialogDismissed,         // callback
+    	'An example dialog!',            // title
+    	['Awesome!', 'Sucks']                  // buttons    		
+	);
 }

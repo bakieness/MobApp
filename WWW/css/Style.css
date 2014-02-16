@@ -16,12 +16,8 @@ body{
 
 #h1{
 	display: inline-block;
-	font:Tahoma, Geneva, sans-serif;
-	font-size:30px;
 	text-align:center;
-	margin-bottom:10px;
-	font-weight:bold;
-	width:90%
+	width:90%;
 	}
 	
 #h2{
