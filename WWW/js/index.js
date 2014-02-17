@@ -35,9 +35,13 @@ function Sfunction()
 		{
 			document.getElementById("p4").innerHTML=$time;
 		}
+	if ($event == null && $type == null)
+		{
+			var $blank = document.getElementById('alarm');
+			$blank.style.backgroundColor = '#CCC';
+		}
 
 	var $div = document.getElementById('alarm');
-	var $color = $div.style.backgroundColor;
 
 	switch ($type)
 	{
