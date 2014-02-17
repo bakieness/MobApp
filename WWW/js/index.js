@@ -1,47 +1,56 @@
 // JavaScript Document
 
-function Afunction()
-{
-	var $div = document.getElementById('alarm');
-	var $color = $div.style.backgroundColor;
-	$div.onmouseover = function() 
-	{
-  		this.style.backgroundColor = 'green';
-  	}
-	$div.onmouseout = function() 
-	{
-  		this.style.backgroundColor = $color;
-  	}
-}
-
 function setVars()
 {
 	var _event = document.getElementById("event").value;	
-	window.localStorage.setItem("event", _event);	
 	var _type = document.getElementById("type").value;	
-	window.localStorage.setItem("type", _type);	
+	var _date = document.getElementById("date").value;
+	var _time = document.getElementById("time").value;	
+	window.localStorage.setItem("event", _event);	
+	window.localStorage.setItem("type", _type);
+	window.localStorage.setItem("date", _date);
+	window.localStorage.setItem("time", _time);
 }
 
 function Sfunction()
 {
-	var $type = window.localStorage.getItem("event");
-	var $name = window.localStorage.getItem("type");
+	var $event = window.localStorage.getItem("event");
+	var $type = window.localStorage.getItem("type");
+	var $date = window.localStorage.getItem("date");
+	var $time = window.localStorage.getItem("time");	 
+	
+	if ($event != null)
+		{
+			document.getElementById("p1").innerHTML=$event;
+		}
 	if ($type != null)
 		{
-			document.getElementById("p1").innerHTML=$type;
+			document.getElementById("p2").innerHTML=$type;
 		}
-	if ($name != null)
+	if ($date != null)
 		{
-			document.getElementById("p2").innerHTML=$name;
+			document.getElementById("p3").innerHTML=$date;
 		}
-}
+	if ($time != null)
+		{
+			document.getElementById("p4").innerHTML=$time;
+		}
 
-function createDialog() 
-{
-	navigator.notification.confirm(
-		'What do you think of this dialog?',  // message
-    	dialogDismissed,         // callback
-    	'An example dialog!',            // title
-    	['Awesome!', 'Sucks']                  // buttons    		
-	);
+	var $div = document.getElementById('alarm');
+	var $color = $div.style.backgroundColor;
+
+	switch ($type)
+	{
+	case "Assignment":
+  		$div.style.backgroundColor = '#FB9B9B';
+  		break;
+	case "Lecture":
+  		$div.style.backgroundColor = '#A2BEF4';
+  		break;
+	case "Social":
+   		$div.style.backgroundColor = '#A2FA92';
+  		break;
+	case "Other":
+		$div.style.backgroundColor = '#FBEB91';
+	}
 }

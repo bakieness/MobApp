@@ -12,13 +12,9 @@
 <div id="h1">Add Alarm</div>
 <input type="submit" name="submit" value="Done" id="add" onclick="window.location='index.html';"/>
 </div>
-
 <div id="form">
-
-<form action="index.html" method="get">
 <div id="h2">Title</div>
 <input type="text" name="event" id="event" onchange="setVars()"/>
-
 <div id="h2">Type</div>
 <div id="dropdown">
 <select name="type" id="type" onchange="setVars()">
@@ -28,8 +24,12 @@
   	<option value="Other">Other</option>
 </select>
 </div>
-<input type="submit" value="Submit">
-</form>
+<div id="h2">Date</div>
+<div>
+<input type="date" id="date" onchange="setVars()"/>
+</div>
+<div id="h2">Time</div>
+<div><input type="time" id="time" onchange="setVars()"/></div>
 </div>
 </body>
 </html>
