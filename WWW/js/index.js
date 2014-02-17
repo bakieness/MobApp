@@ -1,4 +1,5 @@
 // JavaScript Document
+var alarms = new array();
 
 function setVars()
 {
@@ -56,5 +57,20 @@ function Sfunction()
   		break;
 	case "Other":
 		$div.style.backgroundColor = '#FBEB91';
+	}
+}
+
+function addtoarray()
+{
+	for (var i=0; i<=alarms.length; i++)
+	{
+		if (i == alarms.length)
+		{
+			alarms[i] = new array();
+			alarms[i][0] = $event;
+			alarms[i][1] = $type;
+			alarms[i][2] = $date;
+			alarms[i][3] = $time;
+		}
 	}
 }
