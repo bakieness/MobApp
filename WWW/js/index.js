@@ -11,6 +11,7 @@ function setVars()
 	window.localStorage.setItem("type", _type);
 	window.localStorage.setItem("date", _date);
 	window.localStorage.setItem("time", _time);
+	addtoarray(_event, _type, _date, _time);
 }
 
 function Sfunction()
@@ -57,20 +58,22 @@ function Sfunction()
   		break;
 	case "Other":
 		$div.style.backgroundColor = '#FBEB91';
+		break;
 	}
 }
 
-function addtoarray()
+function addtoarray(_event, __type, _date, _type)
 {
 	for (var i=0; i<=alarms.length; i++)
 	{
 		if (i == alarms.length)
 		{
 			alarms[i] = new array();
-			alarms[i][0] = $event;
-			alarms[i][1] = $type;
-			alarms[i][2] = $date;
-			alarms[i][3] = $time;
+			alarms[i][0] = _event;
+			alarms[i][1] = _type;
+			alarms[i][2] = _date;
+			alarms[i][3] = _time;
 		}
 	}
+	alert(alarms[0][1]);
 }
