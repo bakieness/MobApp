@@ -16,20 +16,29 @@
 <div id="h2">Title</div>
 <input type="text" name="event" id="event"/>
 <div id="h2">Type</div>
-<div id="dropdown">
 <select name="type" id="type">
 	<option value="Assignment">Assignment</option>
 	<option value="Lecture">Lecture</option>
   	<option value="Social">Social</option>
   	<option value="Other">Other</option>
 </select>
-</div>
 <div id="h2">Date</div>
 <div>
 <input type="date" id="date"/>
 </div>
 <div id="h2">Time</div>
 <div><input type="time" id="time" onchange="setVars()"/></div>
+<div id="h2">Repeat</div>
+<select name="repeat" id="repeat" onchange="setVars()">
+    <option value="Once">Once</option>
+	<option value="Monday">Monday</option>
+	<option value="Tuesday">Tuesday</option>
+  	<option value="Wednesday">Wednesday</option>
+  	<option value="Thursday">Thursday</option>
+    <option value="Friday">Friday</option>
+    <option value="Saturday">Saturday</option>
+   	<option value="Sunday">Sunday</option>
+</select>
 </div>
 </body>
 </html>
