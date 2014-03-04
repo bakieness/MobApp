@@ -44,7 +44,7 @@ body{
 	padding:12px 11px;
 }
 
-#back:hover {
+#back:active {
     background:#06F;
 }
 
@@ -62,7 +62,7 @@ body{
 	padding:12px 11px;
 }
 
-#add:hover {
+#add:active {
     background:#06F;
 }
 
@@ -109,4 +109,23 @@ body{
   	-o-border-radius: 10px;
   	border-radius: 10px;
 	background:#999;
+}
+
+#delete {
+	background-color:#C00;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	border-radius:8px;
+	border:2px solid #FFF;
+	width:150px;
+	display:inline-block;
+	cursor:pointer;
+	color:#FFF;
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size:20px;
+	padding:12px 11px;
+}
+
+#delete:active {
+	background-color:#900;
 }

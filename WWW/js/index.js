@@ -1,6 +1,5 @@
 // JavaScript Document
-var alarms = new array();
-
+ArrayList<ArrayList<String>> myList;
 function setVars()
 {
 	var _event = document.getElementById("event").value;	
@@ -11,7 +10,24 @@ function setVars()
 	window.localStorage.setItem("type", _type);
 	window.localStorage.setItem("date", _date);
 	window.localStorage.setItem("time", _time);
-	addtoarray(_event, _type, _date, _time);
+	
+	
+	
+//	for (var i=0; i<=100; i++)
+//	{
+//		myList.get(0).set(0, _event);
+//		myList.get(0).set(1, _type);
+//		myList.get(0).set(2, _date);
+//		myList.get(0).set(3, _time);
+//		if (alarms[i] == null)
+//		{
+//			alarms[i] = new array();
+//			alarms[i][0] = _event;
+//			alarms[i][1] = _type;
+//			alarms[i][2] = _date;
+//			alarms[i][3] = _time;
+//		}
+//	}
 }
 
 function Sfunction()
@@ -60,20 +76,4 @@ function Sfunction()
 		$div.style.backgroundColor = '#FBEB91';
 		break;
 	}
-}
-
-function addtoarray(_event, __type, _date, _type)
-{
-	for (var i=0; i<=alarms.length; i++)
-	{
-		if (i == alarms.length)
-		{
-			alarms[i] = new array();
-			alarms[i][0] = _event;
-			alarms[i][1] = _type;
-			alarms[i][2] = _date;
-			alarms[i][3] = _time;
-		}
-	}
-	alert(alarms[0][1]);
 }
