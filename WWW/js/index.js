@@ -53,7 +53,7 @@ function Sfunction()
 	if ($event == null && $type == null)
 		{
 			var $blank = document.getElementById('alarm');
-			$blank.style.backgroundColor = '#CCC';
+			$blank.style.display = 'none';
 		}
 
 	var $div = document.getElementById('alarm');
@@ -103,4 +103,9 @@ function Sfunction2()
 		{
 			document.getElementById("p5").innerHTML=$repeat;
 		}	
+}
+
+function deleteAlarm()
+{
+	window.localStorage.clear();	
 }
