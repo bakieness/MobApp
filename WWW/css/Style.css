@@ -7,9 +7,12 @@ body{
 	margin-top: 0px;
 	margin-right: 0px;
 	margin-bottom: 0px;
+	overflow:scroll;
 }
 
 #wrapper{
+	position:relative;
+	widows:auto;
 	background:#09F;
 	height:60px;
 }
