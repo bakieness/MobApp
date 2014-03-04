@@ -1,4 +1,6 @@
 // JavaScript Document
+//MAKE DATABASE FOR ALARMS
+//REACTIVE LIST BINDING
 ArrayList<ArrayList<String>> myAlarms;
 
 function setVars()
@@ -26,7 +28,7 @@ function setVars()
 	}
 }
 
-function Sfunction()
+function displayAlarms()
 {
 	var $event = window.localStorage.getItem("event");
 	var $type = window.localStorage.getItem("type");
@@ -75,7 +77,7 @@ function Sfunction()
 	}
 }
 
-function Sfunction2()
+function displayAlarmDetails()
 {
 	var $event = window.localStorage.getItem("event");
 	var $type = window.localStorage.getItem("type");
