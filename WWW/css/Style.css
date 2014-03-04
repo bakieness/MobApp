@@ -16,14 +16,16 @@ body{
 	width:100%;
 	position:fixed;
 	top:0;
+	height:40px;
 	background:#09F;
 }
 
 #h1{
+	position:absolute
 	display: inline-block;
 	font-size:24px;
 	text-align:center;
-	width:90%;
+	width:100%;
 	}
 	
 #h2{
@@ -36,6 +38,7 @@ body{
 
 	
 #back {
+	position:absolute;
 	float:left;
 	background-color:#09F;
 	-moz-border-radius:8px;
@@ -55,6 +58,9 @@ body{
 
 #add {
 	float:right;
+	position:absolute;
+	top:0px;
+	right:0px;
 	background-color:#09F;
 	-moz-border-radius:8px;
 	-webkit-border-radius:8px;
