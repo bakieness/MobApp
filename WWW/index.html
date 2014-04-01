@@ -4,18 +4,95 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
 <link rel="stylesheet" href="css/Style.css" type="text/css">
+
 <script src="js/index.js"></script>
-<div id="wrapper">
-<input type="submit" name="submit" value="+" id="add" onclick="window.location='AddForm.html';"/>
-<div id="h1">Alarms</div>
-</div>
+<script src="js/database.js"></script>
+<script src="jquery-mobile/jquery-1.6.4.min.js" type="text/javascript"></script>
+<script src="jquery-mobile/jquery.mobile-1.0.min.js" type="text/javascript"></script>
 </head>
-<body onload="displayAlarms()">
+<body onload="GetAlarms()">
+<!--<input type="submit" onclick="adddiv()"/>
 <div id="alarm" onclick="window.location = 'Details.html';">
 <p id="p1"></p>
 <p id="p2"></p>
 <p id="p3"></p>
 <p id="p4"></p>
+</div>
+<input name="test" type="button" onclick="AddDB()"/>-->
+<div data-role="page" id="index">
+  <div data-role="header">
+    <div id="wrapper">
+  		<button id="add" onclick="window.location='index.html#addform';">+</button> 
+  		<div id="h1">Alarms</div>
+  	</div>
+  </div>
+  <div data-role="content">
+  </div>
+</div>
+
+
+<div data-role="page" id="addform">
+  <div data-role="header">
+<div data-role="content">
+  <div id="wrapper">
+<input type="submit" name="submit" value="BACK" id="back" onclick="window.location='index.html';"/>
+<div id="h1">Add Alarm</div>
+<input type="submit" name="submit" value="Done" id="add" onclick="window.location='index.html'; AddDB();"/>
+</div>
+  </div>
+<div id="form">
+<div id="h2">Title</div>
+<input type="text" name="event" id="event"/>
+<div id="h2">Type</div>
+<select name="type" id="type">
+	<option value="Assignment">Assignment</option>
+	<option value="Lecture">Lecture</option>
+  	<option value="Social">Social</option>
+  	<option value="Other">Other</option>
+</select>
+<div id="h2">Date</div>
+<div>
+<input type="date" id="date"/>
+</div>
+<div id="h2">Time</div>
+<div><input type="time" id="time" onchange="setVars()"/></div>
+<div id="h2">Repeat</div>
+<select name="repeat" id="repeat" onchange="setVars()">
+    <option value="Once">Once</option>
+	<option value="Monday">Monday</option>
+	<option value="Tuesday">Tuesday</option>
+  	<option value="Wednesday">Wednesday</option>
+  	<option value="Thursday">Thursday</option>
+    <option value="Friday">Friday</option>
+    <option value="Saturday">Saturday</option>
+   	<option value="Sunday">Sunday</option>
+</select>
+</div>
+  </div>
+</div>
+
+<div data-role="page" id="details">
+  <div data-role="header">
+  <div id="wrapper">
+  <input type="submit" name="submit" value="BACK" id="back" onclick="window.location='index.html';"/>
+  <div id="h1">Details</div>
+  </div>
+  </div>
+  <div data-role="content">
+  <div id="form">
+	<div id="h2">Title</div>
+	<p id="p1"></p>
+	<div id="h2">Type</div>
+	<p id="p2"></p>
+	<div id="h2">Date</div>
+	<p id="p3"></p>
+	<div id="h2">Time</div>
+	<p id="p4"></p>
+	<div id="h2">Repeat</div>
+	<p id="p5"></p>
+	<input type="submit" id="delete" value="Delete Alarm" onclick="window.location='index.html';"/>
+  </div>
+  </div>
 </div>
 </body>
 </html>

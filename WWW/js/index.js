@@ -1,7 +1,4 @@
 // JavaScript Document
-//MAKE DATABASE FOR ALARMS
-//REACTIVE LIST BINDING
-ArrayList<ArrayList<String>> myAlarms;
 
 function setVars()
 {
@@ -15,20 +12,10 @@ function setVars()
 	window.localStorage.setItem("date", _date);
 	window.localStorage.setItem("time", _time);
 	window.localStorage.setItem("repeat", _repeat);
-		
-	for (var i=0; i<myAlarms.size(); i++)
-	{
-		if (myAlarms.get(i) = null)
-		{
-			myAlarms.get(i).set(0, _event);
-			myAlarms.get(i).set(1, _type);
-			myAlarms.get(i).set(2, _date);
-			myAlarms.get(i).set(3, _time);
-		}
-	}
 }
 
-function displayAlarms()
+//being replaced by database
+/*function displayAlarms()
 {
 	var $event = window.localStorage.getItem("event");
 	var $type = window.localStorage.getItem("type");
@@ -76,7 +63,8 @@ function displayAlarms()
 		break;
 	}
 }
-
+*/
+//getting replaced by database
 function displayAlarmDetails()
 {
 	var $event = window.localStorage.getItem("event");
@@ -107,7 +95,69 @@ function displayAlarmDetails()
 		}	
 }
 
+//replaced by database
 function deleteAlarm()
 {
 	window.localStorage.clear();	
+}
+
+function adddiv()
+{
+	var $event = window.localStorage.getItem("event");
+	var $type = window.localStorage.getItem("type");
+	var $date = window.localStorage.getItem("date");
+	var $time = window.localStorage.getItem("time");
+	
+	var thing = document.createElement("div")
+	thing.setAttribute('id', 'alarm');
+	thing.setAttribute('onClick', 'window.location = "Details.html"');
+	
+	var a = document.createElement("p");
+	var b = document.createElement("p");
+	var c = document.createElement("p");
+	var d = document.createElement("p");
+	
+	a.setAttribute('id', 'p1');
+	b.setAttribute('id', 'p2');
+	c.setAttribute('id', 'p3');
+	d.setAttribute('id', 'p4');
+	
+	var t=document.createTextNode($event);
+	var q=document.createTextNode($type);
+	var w=document.createTextNode($date);
+	var e=document.createTextNode($time);
+	
+	a.appendChild(t);
+	b.appendChild(q);
+	c.appendChild(w);
+	d.appendChild(e);
+	
+	thing.appendChild(a);
+	thing.appendChild(b);
+	thing.appendChild(c);
+	thing.appendChild(d);
+
+	if ($event == null && $type == null)
+		{
+			//var $blank = document.getElementById('alarm');
+			thing.style.display = 'none';
+		}
+
+	switch ($type)
+	{
+	case "Assignment":
+  		thing.style.backgroundColor = '#FB9B9B';
+  		break;
+	case "Lecture":
+  		thing.style.backgroundColor = '#A2BEF4';
+  		break;
+	case "Social":
+   		thing.style.backgroundColor = '#A2FA92';
+  		break;
+	case "Other":
+		thing.style.backgroundColor = '#FBEB91';
+		break;
+	}
+	
+	document.body.appendChild(thing);
 }
