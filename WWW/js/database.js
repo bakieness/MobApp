@@ -1,7 +1,16 @@
 // JavaScript Document
-var db = window.openDatabase('mydb', '1.0', 'AlarmDatabase', 1024*1024 * 500);
+var db = window.openDatabase('myDB', '1.0', 'myDb', 1024 * 1024 * 500);
+	if (window.localStorage.getItem("new") === null)
+	{
+		db.transaction(function(tx) 
+		{
+			tx.executeSql('CREATE TABLE ALARMS (id unique, title, type, date, time, repeat)');
+		});
+		window.localStorage.setItem("new", "notnow");
+		window.localStorage.setItem("i", 0);
+	}
+	
 
-//insert function - add page
 function AddDB()
 {
 	var $event = window.localStorage.getItem("event");
@@ -9,17 +18,18 @@ function AddDB()
 	var $date = window.localStorage.getItem("date");
 	var $time = window.localStorage.getItem("time");
 	var $repeat = window.localStorage.getItem("repeat");
-	
+	var i = window.localStorage.getItem("i");
+	i++;
+	window.localStorage.setItem("i", i);
 	db.transaction(function(tx) 
 	{
-		tx.executeSql('CREATE TABLE IF NOT EXISTS ALARMS (id unique, title, type, date, time, repeat)');
-		tx.executeSql('INSERT INTO ALARMS (title, type) VALUES ("thing", "Other")');
-	})
+		tx.executeSql('INSERT INTO ALARMS (id, title, type, date, time, repeat) VALUES (?, ?, ?, ?, ?, ?)', [i, $event,$type,$date,$time,$repeat]);
+	});
 }
-//select & display function - index page 
+
+ 
 function GetAlarms()
 {
-	//alert("test");
 	db.transaction(function (tx) 
 	{
 		tx.executeSql('SELECT * FROM ALARMS', [], function (tx, results)
@@ -29,14 +39,14 @@ function GetAlarms()
 			for (i = 0; i < len; i++)
 			{	
 			var thing = document.createElement("div")
-			thing.setAttribute('id', 'alarm');
-			thing.setAttribute('onClick', 'window.location = "index.html#details"');
+			thing.setAttribute('id', i);
+			thing.setAttribute('onClick', 'window.location = "index.html#Details"; ShowDetails(this)');
 			
 			var a = document.createElement("p");
 			var b = document.createElement("p");
 			var c = document.createElement("p");
 			var d = document.createElement("p");
-			
+			-
 			a.setAttribute('id', 'p1');
 			b.setAttribute('id', 'p2');
 			c.setAttribute('id', 'p3');
@@ -76,12 +86,55 @@ function GetAlarms()
 				case "Other":
 					thing.style.backgroundColor = '#FBEB91';
 					break;
-			}
-			
-			document.body.appendChild(thing);
+			}			
+			$content = document.getElementById("contenthome");
+			$content.appendChild(thing);
 			}
 		})
 	})
 }
 
-//delete function - from detail page
+function deleteAlarm(aid)
+{
+	alert(aid);
+/*	db.transaction(function (tx) 
+	{
+		tx.executeSql('DELETE * FROM ALARMS WHERE id = ?', [aid], function (tx, results)
+		{
+			alert("ALARM DELETED");
+		})
+	});*/
+}
+
+function ShowDetails(alarm)
+{
+	var p1 = document.createTextNode(alarm.getElementsByTagName('p')[0].innerHTML);
+	var p2 = document.createTextNode(alarm.getElementsByTagName('p')[1].innerHTML);
+	var p3 = document.createTextNode(alarm.getElementsByTagName('p')[2].innerHTML);
+	var p4 = document.createTextNode(alarm.getElementsByTagName('p')[3].innerHTML);
+	
+	//do styling here like above
+	$content = document.getElementById("details");
+	$content.appendChild(p1);
+	$content.appendChild(p2);
+	$content.appendChild(p3);
+	$content.appendChild(p4);
+	
+	var aid = alarm.id;
+	alert(aid);
+	db.transaction(function (tx) 
+	{
+		tx.executeSql('SELECT * FROM ALARMS WHERE (id = ?)', [aid], function (tx, results)
+		{
+			alert(results.rows.length);
+			for(var i=0; i<results.rows.length; i++) 
+			{	
+			var details = document.createTextNode(results.rows.item(i).type);
+			alert(results.rows.item(i).type);
+			}
+		})
+	});
+	
+	del = document.getElementById("delbtn");
+	del.setAttribute('onClick', 'window.location = "index.html"; deleteAlarm(aid)');
+}

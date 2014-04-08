@@ -9,21 +9,14 @@
 <script src="jquery-mobile/jquery.mobile-1.0.min.js" type="text/javascript"></script>
 <link href="jquery-mobile/jquery.mobile-1.0.min.css" rel="stylesheet" type="text/css" />
 </head>
-<body>
+<!--onload="GetAlarms()"-->
+<body onload="GetAlarms()">
 <div data-role="page" id="index">
 	<div data-role="header" data-position="fixed" data-theme="b">
 		<h1>Alarms</h1>
-		<a href="#page2" class="ui-btn-right" data-icon="arrow-r">Add</a>
+		<a href="#page2" class="ui-btn-right" data-icon="plus">Add</a>
 	</div>
-  	<div data-role="content">
-    <ul data-role="listview" data-inset="true">
-			<li onclick="window.location='index.html#Details';">
-				<h3>Title</h3>
-				<p><strong>Type</strong></p>
-				<p>date</p>
-				<p class="ui-li-aside"><strong>time</strong></p>
-			</li>
-		</ul>
+  	<div id="contenthome" data-role="content">
   	</div>
 </div>
 
@@ -31,14 +24,14 @@
 	<div data-role="header" data-position="fixed" data-theme="b">
 		<a href="#index" data-icon="back">Back</a>
         <h1>Add Alarm</h1>
-		<a href="#index" data-icon="check">Done</a>
+		<a href="#index" data-icon="check" onclick="AddDB();">Done</a>
 	</div>
   	<div data-role="content">
     Title:
-    <input type="text" name="name" id="basic" value="" data-mini="true"/>
+    <input type="text" name="name" id="event" value="" data-mini="true" onchange="setVars();"/>
     <br/>
     Type:
-    <select name="select-choice-min" id="select-choice-min" data-mini="true">
+    <select name="select-choice-min" id="type" data-mini="true" onchange="setVars();">
 		<option value="Assignment">Assignment</option>
 		<option value="Lecture">Lecture</option>
 	  	<option value="Social">Social</option>
@@ -46,13 +39,13 @@
 	</select>
     <br/>
     Date:
-    <input type="date"/>
+    <input type="date" id="date" onchange="setVars();"/>
     <br/>
     Time:
-    <input type="time"/>
+    <input type="time" id="time" onchange="setVars();"/>
     <br/>
     Repeat:
-    <select name="select-choice-min" id="select-choice-min" data-mini="true">
+    <select name="select-choice-min" id="repeat" data-mini="true" onchange="setVars();">
     	<option value="Once">Once</option>
 		<option value="Monday">Monday</option>
 		<option value="Tuesday">Tuesday</option>
@@ -71,6 +64,9 @@
 		<a href="#index" data-icon="back">Back</a>
 	</div>
   <div data-role="content">
+  <div id="details">
+  </div>
+  <button id="delbtn" class="ui-btn">DELETE ALARM</button> 
   </div>
 </div>
 </body>
