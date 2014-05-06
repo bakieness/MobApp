@@ -13,9 +13,8 @@ function onDeviceReady() {
 			window.localStorage.setItem("new", "notnow");
 			window.localStorage.setItem("i", 0);
 		}
-	
+	alert("hi");
     GetAlarms();
-	// Now safe to use the PhoneGap API
 }
 
 function AddDB()
