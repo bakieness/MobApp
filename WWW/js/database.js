@@ -2,20 +2,20 @@
 document.addEventListener("deviceready", onDeviceReady(), false);
 
 function onDeviceReady() {
-	alert("hdeu");
+	
 	var db = window.openDatabase('myDB2', '1.0', 'myDb', 1024 * 1024 * 500);
-	alert(db);
+	
 	db.transaction(function(tx) 
 		{
 			tx.executeSql('CREATE TABLE ALARMS (id unique, title, type, date, time, repeat)');
 		});
-	alert("hi3");	
+		
 	if (window.localStorage.getItem("new") === null)
 		{
 			window.localStorage.setItem("new", "notnow");
 			window.localStorage.setItem("i", 0);
 		}
-	alert("hi4");
+	
     GetAlarms();
 }
 
