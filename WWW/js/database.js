@@ -41,6 +41,7 @@ function AddDB()
 function GetAlarms()
 {
 	alert("ste");
+	var db = window.openDatabase('myDB2', '1.0', 'myDb', 1024 * 1024 * 500);
 	db.transaction(function (tx) 
 	{
 		tx.executeSql('SELECT * FROM ALARMS', [], function (tx, results)
