@@ -2,17 +2,17 @@
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
-alert("hdeu");
-var db = window.openDatabase('myDB2', '1.0', 'myDb', 1024 * 1024 * 500);
-		db.transaction(function(tx) 
+	alert("hdeu");
+	var db = window.openDatabase('myDB2', '1.0', 'myDb', 1024 * 1024 * 500);
+	db.transaction(function(tx) 
 		{
 			tx.executeSql('CREATE TABLE ALARMS (id unique, title, type, date, time, repeat)');
 		});
 	if (window.localStorage.getItem("new") === null)
-	{
-		window.localStorage.setItem("new", "notnow");
-		window.localStorage.setItem("i", 0);
-	}
+		{
+			window.localStorage.setItem("new", "notnow");
+			window.localStorage.setItem("i", 0);
+		}
 	
     GetAlarms();
 	// Now safe to use the PhoneGap API
