@@ -1,5 +1,5 @@
 // JavaScript Document
-document.addEventListener("deviceready", onDeviceReady, false);
+document.addEventListener("deviceready", onDeviceReady(), false);
 
 function onDeviceReady() {
 	alert("hdeu");
@@ -18,8 +18,6 @@ function onDeviceReady() {
 	// Now safe to use the PhoneGap API
 }
 
-	
-
 function AddDB()
 {
 	var db = window.openDatabase('myDB2', '1.0', 'myDb', 1024 * 1024 * 500);
@@ -36,7 +34,6 @@ function AddDB()
 		tx.executeSql('INSERT INTO ALARMS (id, title, type, date, time, repeat) VALUES (?, ?, ?, ?, ?, ?)', [i, $event,$type,$date,$time,$repeat]);
 	});
 }
-
  
 function GetAlarms()
 {
@@ -168,7 +165,6 @@ function ShowDetails(alarm)
 	del = document.getElementById("delbtn");
 	del.setAttribute('onClick', 'window.location = "index.html"; deleteAlarm()');
 }
-
 
 function deleteAlarm()
 {

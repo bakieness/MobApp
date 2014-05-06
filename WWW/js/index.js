@@ -1,6 +1,6 @@
 // JavaScript Document
 
-var now = new Date().getTime(),
+/*var now = new Date().getTime(),
     _60_seconds_from_now = new Date(now + 60*1000);
 
 window.plugin.notification.local.add({
@@ -10,7 +10,7 @@ window.plugin.notification.local.add({
     repeat:  'weekly',
     date:    _60_seconds_from_now
 });
-
+*/
 function setVars()
 {
 	var _event = document.getElementById("event").value;	
