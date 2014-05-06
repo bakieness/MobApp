@@ -1,9 +1,5 @@
 // JavaScript Document
 
-document.addEventListener('deviceready', function () {
-    // window.plugin.notification.local is now available
-}, false);
-
 var now = new Date().getTime(),
     _60_seconds_from_now = new Date(now + 60*1000);
 
