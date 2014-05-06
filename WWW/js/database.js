@@ -1,5 +1,5 @@
 // JavaScript Document
-document.addEventListener("deviceready", onDeviceReady(), false);
+document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
 	alert("he");
