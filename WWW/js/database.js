@@ -63,6 +63,7 @@ function GetAlarms()
 			b.appendChild(q);
 			c.appendChild(w);
 			d.appendChild(e);
+			alert(document);
 			
 			newDiv.appendChild(a);
 			newDiv.appendChild(b);
