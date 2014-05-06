@@ -2,7 +2,7 @@
 document.addEventListener("deviceready", onDeviceReady(), false);
 
 function onDeviceReady() {
-	
+	alert("he");
 	var db = window.openDatabase('myDB2', '1.0', 'myDb', 1024 * 1024 * 500);
 	
 	db.transaction(function(tx) 
