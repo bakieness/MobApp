@@ -1,13 +1,11 @@
 // JavaScript Document
-document.addEventListener("deviceready", onDeviceReady, false);
 
-function onDeviceReady() {
 	alert("he");
 	var db = window.openDatabase("myDB2", "1.0", "myDb", 1024 * 1024 * 500);
 	
 	db.transaction(function(tx) 
 		{
-			tx.executeSql('CREATE TABLE ALARMS (id unique, title, type, date, time, repeat)');
+			tx.executeSql('CREATE TABLE IF NOT EXISTS ALARMS (id unique, title, type, date, time, repeat)');
 		});
 		
 	if (window.localStorage.getItem("new") === null)
@@ -15,9 +13,7 @@ function onDeviceReady() {
 			window.localStorage.setItem("new", "notnow");
 			window.localStorage.setItem("i", 0);
 		}
-	
-    GetAlarms();
-}
+
 
 function AddDB()
 {
