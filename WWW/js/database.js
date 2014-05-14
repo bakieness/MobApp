@@ -39,6 +39,7 @@ function AddDB()
 	db.transaction(function(tx) 
 	{
 		tx.executeSql('INSERT INTO ALARMS (id, title, type, date, time, repeat) VALUES (?, ?, ?, ?, ?, ?)', [i, $event,$type,$date,$time,$repeat]);
+		redirect();
 	});
 }
  
