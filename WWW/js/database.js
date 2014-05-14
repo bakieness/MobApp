@@ -187,7 +187,7 @@ function deletedata()
 	if (db) {
 	db.transaction(function (tx) {
 		//t.executeSql("DELETE FROM cars WHERE id=?", [id]
-		tx.executeSql("DELETE FROM TEST WHERE id=?", [n]);
+		tx.executeSql("DELETE FROM ALARMS WHERE id=?", [n]);
 		});
 	}
 }
