@@ -57,15 +57,15 @@ function GetAlarms()
 			newDiv.setAttribute('id', results.rows.item(i).id);
 			newDiv.setAttribute('onClick', 'window.location = "index.html#Details"; ShowDetails(this); setid(this)');
 			
-			var a = document.createElement(results.rows.item(i).id);
-			var b = document.createElement(results.rows.item(i).id);
-			var c = document.createElement(results.rows.item(i).id);
-			var d = document.createElement(results.rows.item(i).id);
+			var a = document.createElement("p");
+			var b = document.createElement("p");
+			var c = document.createElement("p");
+			var d = document.createElement("p");
 			
-			a.setAttribute('id', 'p1');
-			b.setAttribute('id', 'p2');
-			c.setAttribute('id', 'p3');
-			d.setAttribute('id', 'p4');
+			a.setAttribute('id', results.rows.item(i).id);
+			b.setAttribute('id', results.rows.item(i).id);
+			c.setAttribute('id', results.rows.item(i).id);
+			d.setAttribute('id', results.rows.item(i).id);
 			
 			var x=document.createTextNode(results.rows.item(i).id);
 			var t=document.createTextNode(" " + results.rows.item(i).title);
