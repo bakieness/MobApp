@@ -174,7 +174,6 @@ function deletedata()
 	db = window.openDatabase("myDB2", "1.0", "myDb", 1024 * 1024);
 	var id = window.localStorage.getItem("dataid");
 	var n = Number(id)
-	alert(n);
 	db.transaction(function (tx) {
 		tx.executeSql("DELETE FROM ALARMS WHERE id=?", [n]);
 		window.location = 'index.html';
