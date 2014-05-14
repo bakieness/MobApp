@@ -28,8 +28,8 @@ function onDeviceReady() {
 
 function Clear()
 {
-	document.querySelector('contenthome').innerHTML = "";
-	GetAlarms();
+	document.getElementById(('contenthome').innerHTML = "";
+	GetAlarms(); 
 }
 
 function AddDB()
