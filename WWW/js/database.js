@@ -14,7 +14,7 @@ function onDeviceReady() {
 			
 			alert("calling GetAlarms");
 			
-			Clear();
+			GetAlarms();
 			
 		});
 		
@@ -24,12 +24,6 @@ function onDeviceReady() {
 			window.localStorage.setItem("i", 0);
 		}
 		
-}
-
-function Clear()
-{
-	document.getElementById(('contenthome').innerHTML = "";
-	GetAlarms(); 
 }
 
 function AddDB()
