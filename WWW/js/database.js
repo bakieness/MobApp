@@ -1,12 +1,10 @@
 // JavaScript Document
+var db = window.openDatabase("myDB2", "1.0", "myDb", 1024 * 1024);;
 document.addEventListener("deviceready", onDeviceReady, false);
-
-var db;
 
 function onDeviceReady() {
 	alert("Attempting to create db");
 	db = window.openDatabase("myDB2", "1.0", "myDb", 1024 * 1024);
-	
 	
 	alert("Attempting to create table");
 	db.transaction(function(tx) 
@@ -31,7 +29,7 @@ function onDeviceReady() {
 
 function AddDB()
 {
-	db = window.openDatabase('myDB2', '1.0', 'myDb', 1024 * 1024 * 500);
+	db = window.openDatabase("myDB2", "1.0", "myDb", 1024 * 1024);
 	var $event = window.localStorage.getItem("event");
 	var $type = window.localStorage.getItem("type");
 	var $date = window.localStorage.getItem("date");
@@ -48,8 +46,7 @@ function AddDB()
  
 function GetAlarms()
 {
-	alert("ste");
-	db = window.openDatabase('myDB2', '1.0', 'myDb', 1024 * 1024 * 500);
+	db = window.openDatabase("myDB2", "1.0", "myDb", 1024 * 1024);
 	db.transaction(function (tx) 
 	{
 		tx.executeSql('SELECT * FROM ALARMS', [], function (tx, results)
@@ -59,7 +56,7 @@ function GetAlarms()
 			{	
 			var newDiv = document.createElement("div")
 			newDiv.setAttribute('id', i);
-			newDiv.setAttribute('onClick', 'window.location = "index.html#Details"; ShowDetails(this)');
+			newDiv.setAttribute('onClick', 'window.location = "index.html#Details"; ShowDetails(this); setid(this)');
 			
 			var a = document.createElement("p");
 			var b = document.createElement("p");
@@ -80,7 +77,6 @@ function GetAlarms()
 			b.appendChild(q);
 			c.appendChild(w);
 			d.appendChild(e);
-			alert(document);
 			
 			newDiv.appendChild(a);
 			newDiv.appendChild(b);
@@ -174,30 +170,88 @@ function ShowDetails(alarm)
 	$content.appendChild(newDiv);
 	
 	del = document.getElementById("delbtn");
-	del.setAttribute('onClick', 'window.location = "index.html"; deleteAlarm()');
+	del.setAttribute('onClick', 'window.location = "index.html"; deletedata()');
 }
 
-function deleteAlarm()
+//deletes data from database
+function deletedata()
 {
-	var db = window.openDatabase('myDB2', '1.0', 'myDb', 1024 * 1024 * 500);
-	alert("hi");
-	alert(db);
-	
-	db.transaction(function (tx) 
-	{
-		var aid = "3";
-		alert(aid);
-		alert(tx);
-		tx.executeSql('DELETE FROM ALARMS', [], 
-			function (tx, results)
-			{
-				alert("ALARM DELETED");
-			},
-			function (error)
-			{
-				alert("fh");
+	db = window.openDatabase("myDB2", "1.0", "myDb", 1024 * 1024);
+	var id = window.localStorage.getItem("dataid");
+	var n = Number(id)
+	alert(n);
+	if (db) {
+	db.transaction(function (tx) {
+		//t.executeSql("DELETE FROM cars WHERE id=?", [id]
+		tx.executeSql("DELETE FROM TEST WHERE id=?", [n]);
+		});
+	}
+}
+
+//gets the database id value from the div tag clicked
+function setid(div)
+{
+	$(document.body).click(function(evt){
+		var clicked = evt.target; 
+		var currentID = clicked.id;
+		var text = $.trim($('#' + currentID).text()),
+    	word = text.split(' ');
+    	dataid = word[0];
+		dataid = parseInt(dataid);
+		if (typeof dataid === 'number')
+		{
+		window.localStorage.setItem("dataid", dataid);
+		}
+		})	
+}
+
+//function is called once the notification has been dismissed by the user
+function alertDismiss()
+{
+	db = window.openDatabase("myDB2", "1.0", "myDb", 1024 * 1024);
+	alert('Alarm Stopped');
+	var currentDate = date();
+	alert(currentDate);
+	db.transaction(function(tx) {
+		tx.executeSql('SELECT * FROM TEST', [], function (tx, results) {
+			var len = results.rows.length, i;
+			for (i = 0; i < len; i++){
+				dbid = row(i).id;
+				if (results.rows.item(i).repeat === 'once')
+				{
+					window.localstorage.setItem("dataid", dbid);
+					deletedata();
+				}
 			}
-		)
+		});
 	});
-	alert("hf")
+}
+
+//gets the current date
+function date()
+{
+	var today = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth()+1; //January is 0
+	var yyyy = today.getFullYear();
+	
+	if(dd<10)
+	{
+		dd='0'+dd
+	} 
+	if(mm<10) 
+	{
+		mm='0'+mm
+	} 
+	today = dd+'/'+mm+'/'+yyyy;
+	return today;
+}
+
+//gets the current time of day
+function currentTime() {
+    var date = new Date();
+    var mins = date.getMinutes();
+    var hours = date.getHours();
+	var currentTime = hours + ":" + mins;
+	return currentTime;
 }

@@ -11,9 +11,9 @@
 <script src="js/database.js"></script>
 </head>
 
-<!--onload="GetAlarms()"-->
-<body>
 
+<body>
+<!--Main Page-->
 <div data-role="page" id="index">
 	<div data-role="header" data-position="fixed" data-theme="b">
 		<h1>Alarms</h1>
@@ -23,6 +23,7 @@
   	</div>
 </div>
 
+<!--Add Alarm Page-->
 <div data-role="page" id="page2">
 	<div data-role="header" data-position="fixed" data-theme="b">
 		<a href="#index" data-icon="back">Back</a>
@@ -61,6 +62,7 @@
   	</div>
 </div>
 
+<!--Alarm Details Page-->
 <div data-role="page" id="Details">
 <div data-role="header" data-position="fixed" data-theme="b">
 		<h1>Details</h1>
@@ -69,7 +71,7 @@
   <div data-role="content">
   <div id="details">
   </div>
-  <button id="delbtn" class="ui-btn">DELETE ALARM</button> 
+  <button id="delbtn" onclick="deletedata()" class="ui-btn">DELETE ALARM</button> 
   </div>
 </div>
 </body>
