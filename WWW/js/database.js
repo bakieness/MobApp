@@ -3,17 +3,11 @@ var db = window.openDatabase("myDB2", "1.0", "myDb", 1024 * 1024);;
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
-	alert("Attempting to create db");
 	db = window.openDatabase("myDB2", "1.0", "myDb", 1024 * 1024);
 	
-	alert("Attempting to create table");
 	db.transaction(function(tx) 
 		{
-			alert("creating table");
 			tx.executeSql('CREATE TABLE IF NOT EXISTS ALARMS (id INTEGER PRIMARY KEY ASC, title, type, date, time, repeat)');
-			
-			alert("calling GetAlarms");
-			
 			GetAlarms();
 		});
 		
@@ -193,9 +187,7 @@ function setid(div)
 	$(document.body).click(function(evt)
 	{
 		var clicked = evt.target;
-		alert(clicked); 
 		var currentID = clicked.id;
-		alert(currentID);
 		var text = $.trim($('#' + currentID).text()),
     	word = text.split(' ');
     	dataid = word[0];
