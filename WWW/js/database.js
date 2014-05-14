@@ -10,7 +10,7 @@ function onDeviceReady() {
 	db.transaction(function(tx) 
 		{
 			alert("creating table");
-			tx.executeSql('CREATE TABLE IF NOT EXISTS ALARMS (id unique, title, type, date, time, repeat)');
+			tx.executeSql('CREATE TABLE IF NOT EXISTS ALARMS (id INTEGER PRIMARY KEY ASC, title, type, date, time, repeat)');
 			
 			alert("calling GetAlarms");
 			
