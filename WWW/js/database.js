@@ -14,7 +14,7 @@ function onDeviceReady() {
 			
 			alert("calling GetAlarms");
 			
-			GetAlarms();
+			Clear();
 			
 		});
 		
@@ -26,6 +26,11 @@ function onDeviceReady() {
 		
 }
 
+function Clear()
+{
+	document.querySelector('contenthome').innerHTML = "";
+	GetAlarms();
+}
 
 function AddDB()
 {
@@ -108,7 +113,6 @@ function GetAlarms()
 					break;
 			}			
 			$content = document.getElementById("contenthome");
-			$content.innerHTML = "";
 			$content.appendChild(newDiv);
 			}
 		})
