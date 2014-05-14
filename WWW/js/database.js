@@ -192,18 +192,21 @@ function deletedata()
 //gets the database id value from the div tag clicked
 function setid(div)
 {
-	$(document.body).click(function(evt){
-		var clicked = evt.target; 
+	$(document.body).click(function(evt)
+	{
+		var clicked = evt.target;
+		alert(clicked); 
 		var currentID = clicked.id;
+		alert(currentID);
 		var text = $.trim($('#' + currentID).text()),
     	word = text.split(' ');
     	dataid = word[0];
 		dataid = parseInt(dataid);
 		if (typeof dataid === 'number')
 		{
-		window.localStorage.setItem("dataid", dataid);
+			window.localStorage.setItem("dataid", dataid);
 		}
-		})	
+	})	
 }
 
 //function is called once the notification has been dismissed by the user
