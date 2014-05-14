@@ -15,7 +15,6 @@ function onDeviceReady() {
 			alert("calling GetAlarms");
 			
 			GetAlarms();
-			
 		});
 		
 	if (window.localStorage.getItem("new") === null)
@@ -255,4 +254,9 @@ function currentTime() {
     var hours = date.getHours();
 	var currentTime = hours + ":" + mins;
 	return currentTime;
+}
+
+function redirect()
+{
+	window.location = 'index.html';
 }

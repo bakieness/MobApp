@@ -26,9 +26,9 @@
 <!--Add Alarm Page-->
 <div data-role="page" id="page2">
 	<div data-role="header" data-position="fixed" data-theme="b">
-		<a href="index.html"; data-ajax="false" data-icon="back">Back</a>
+		<a href="index.html"; data-ajax="false" onclick="redirect()" data-icon="back">Back</a>
         <h1>Add Alarm</h1>
-		<a href="index.html"; data-ajax="false" data-icon="check" onclick="AddDB();">Done</a>
+		<a href="index.html"; data-icon="check" onclick="AddDB();">Done</a>
 	</div>
   	<div data-role="content">
     Title:
@@ -66,7 +66,7 @@
 <div data-role="page" id="Details">
 <div data-role="header" data-position="fixed" data-theme="b">
 		<h1>Details</h1>
-		<a href="index.html" data-ajax="false" onclick="onDeviceReady()" data-icon="back">Back</a>
+		<a data-ajax="false" onclick="redirect()" data-icon="back">Back</a>
 	</div>
   <div data-role="content">
   <div id="details">
