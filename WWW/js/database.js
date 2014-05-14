@@ -6,9 +6,6 @@ function onDeviceReady() {
 	alert("Attempting to create db");
 	db = window.openDatabase("myDB2", "1.0", "myDb", 1024 * 1024);
 	
-	var content = document.getElementById("conenthome");
-	content.innerHTML = "";
-	
 	alert("Attempting to create table");
 	db.transaction(function(tx) 
 		{
@@ -49,6 +46,9 @@ function AddDB()
  
 function GetAlarms()
 {
+	var content = document.getElementById("conenthome");
+	content.innerHTML = "";
+	
 	db = window.openDatabase("myDB2", "1.0", "myDb", 1024 * 1024);
 	db.transaction(function (tx) 
 	{
