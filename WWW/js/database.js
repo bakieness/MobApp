@@ -174,7 +174,7 @@ function ShowDetails(alarm)
 	$content.appendChild(newDiv);
 	
 	del = document.getElementById("delbtn");
-	del.setAttribute('onClick', 'window.location = "index.html"; deletedata()');
+	del.setAttribute('onClick', 'deletedata()');
 }
 
 //deletes data from database
@@ -184,12 +184,10 @@ function deletedata()
 	var id = window.localStorage.getItem("dataid");
 	var n = Number(id)
 	alert(n);
-	if (db) {
 	db.transaction(function (tx) {
 		tx.executeSql("DELETE FROM ALARMS WHERE id=?", [n]);
 		window.location = 'index.html';
 		});
-	}
 }
 
 //gets the database id value from the div tag clicked
