@@ -45,10 +45,7 @@ function AddDB()
 }
  
 function GetAlarms()
-{
-	var content = document.getElementById("conenthome");
-	content.innerHTML = "";
-	
+{	
 	db = window.openDatabase("myDB2", "1.0", "myDb", 1024 * 1024);
 	db.transaction(function (tx) 
 	{
@@ -111,6 +108,7 @@ function GetAlarms()
 					break;
 			}			
 			$content = document.getElementById("contenthome");
+			$content.innerHTML = "";
 			$content.appendChild(newDiv);
 			}
 		})
