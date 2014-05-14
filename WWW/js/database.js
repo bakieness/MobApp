@@ -5,7 +5,7 @@ var db;
 
 function onDeviceReady() {
 	alert("Attempting to create db");
-	db = window.openDatabase("myDB2", "1.0", "myDb", 1024 * 1024 * 500);
+	db = window.openDatabase("myDB2", "1.0", "myDb", 1024 * 1024);
 	
 	
 	alert("Attempting to create table");
