@@ -1,11 +1,22 @@
 // JavaScript Document
+document.addEventListener("deviceready", onDeviceReady, false);
 
-	alert("he");
-	var db = window.openDatabase("myDB2", "1.0", "myDb", 1024 * 1024 * 500);
+var db;
+
+function onDeviceReady() {
+	alert("Attempting to create db");
+	db = window.openDatabase("myDB2", "1.0", "myDb", 1024 * 1024 * 500);
 	
+	
+	alert("Attempting to create table");
 	db.transaction(function(tx) 
 		{
+			alert("creating table");
 			tx.executeSql('CREATE TABLE IF NOT EXISTS ALARMS (id unique, title, type, date, time, repeat)');
+			
+			
+			GetAlarms();
+			
 		});
 		
 	if (window.localStorage.getItem("new") === null)
@@ -13,11 +24,13 @@
 			window.localStorage.setItem("new", "notnow");
 			window.localStorage.setItem("i", 0);
 		}
+		
+}
 
 
 function AddDB()
 {
-	var db = window.openDatabase('myDB2', '1.0', 'myDb', 1024 * 1024 * 500);
+	db = window.openDatabase('myDB2', '1.0', 'myDb', 1024 * 1024 * 500);
 	var $event = window.localStorage.getItem("event");
 	var $type = window.localStorage.getItem("type");
 	var $date = window.localStorage.getItem("date");
@@ -35,7 +48,7 @@ function AddDB()
 function GetAlarms()
 {
 	alert("ste");
-	var db = window.openDatabase('myDB2', '1.0', 'myDb', 1024 * 1024 * 500);
+	db = window.openDatabase('myDB2', '1.0', 'myDb', 1024 * 1024 * 500);
 	db.transaction(function (tx) 
 	{
 		tx.executeSql('SELECT * FROM ALARMS', [], function (tx, results)
