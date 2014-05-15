@@ -38,9 +38,10 @@ function onDeviceReady() {
 				db.transaction(function(tx) {
 					tx.executeSql('SELECT * FROM ALARMS', [], function (tx, results) {
 						var len = results.rows.length, i;
-						alert("4");
+			
 						//this for loop will create a notification if the date and time are the same as any database entries	
 						for (i = 0; i < len; i++){
+							alert("4");
 							if (results.rows.item(i).time === currentTime && results.rows.item(i).date === currentDate)
 							{
 								window.localStorage.setItem("dataid", results.rows.item(i).title);
