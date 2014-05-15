@@ -27,6 +27,33 @@ function onDeviceReady() {
 			window.localStorage.setItem("new", "notnow");
 			window.localStorage.setItem("i", 0);
 		}
+		
+	//checks to see if a notification is needed for any alarm every minute
+	window.setInterval(function() 
+	{
+		//gets the current date and time
+		var currentTime = time();
+		var currentDate = date();
+	
+		//database transaction that gets all rows from the database
+		db.transaction(function(tx) {
+			tx.executeSql('SELECT * FROM ALARMS', [], function (tx, results) {
+				var len = results.rows.length, i;
+				
+				//this for loop will create a notification if the date and time are the same as any database entries	
+				for (i = 0; i < len; i++){
+					if (results.rows.item(i).time === currentTime && results.rows.item(i).date === currentDate)
+					{
+						window.localStorage.setItem("dataid", results.rows.item(i).title);
+						navigator.notification.alert(
+							'Alarm Done!', 						// message
+							alertDismiss,         				// callback
+							results.rows.item(i).title,         // title
+							'Done'								// buttonName
+					)}}
+				});
+			});
+	}, 60000);
 }
 
 //this function is called by the add alarm page
@@ -245,18 +272,27 @@ function setid(div)
 function alertDismiss()
 {
 	db = window.openDatabase("myDB2", "1.0", "myDb", 1024 * 1024);
-	alert('Alarm Stopped');
+	
+	//gets current date and time
+	var currentTime = time();
 	var currentDate = date();
-	alert(currentDate);
+	
+	//database transaction to get all rows in the database 
 	db.transaction(function(tx) {
 		tx.executeSql('SELECT * FROM TEST', [], function (tx, results) {
 			var len = results.rows.length, i;
+			
+			//this for loop gets all results where the date and time are the same
 			for (i = 0; i < len; i++){
-				dbid = row(i).id;
-				if (results.rows.item(i).repeat === 'once')
+				if (results.rows.item(i).date === currentDate && results.rows.item(i).time === currentTime)
 				{
-					window.localstorage.setItem("dataid", dbid);
-					deletedata();
+					//if the alarm has no repeat the alarm will be deleted
+					//otherwise the date is incremented by a week and the database updated
+					if (results.rows.item(i).repeat === 'once')
+					{
+						deletedata();
+					}
+					//add stuff here!!!!!!
 				}
 			}
 		});
@@ -266,12 +302,14 @@ function alertDismiss()
 //gets the current date
 function date()
 {
+	//gets the current date 
 	var today = new Date();
 	var dd = today.getDate();
 	var mm = today.getMonth()+1; //January is 0
 	var yyyy = today.getFullYear();
 	
-	if(dd<10)
+	//if the month or day is more than 10 a 0 is added to the start
+	if(dd<10) 
 	{
 		dd='0'+dd
 	} 
@@ -279,12 +317,18 @@ function date()
 	{
 		mm='0'+mm
 	} 
-	today = dd+'/'+mm+'/'+yyyy;
+	
+	//sets date format
+	today = yyyy+'-'+mm+'-'+dd;
+	
+	//returns the date
 	return today;
 }
 
 //gets the current time of day
-function currentTime() {
+function time() 
+{
+	//get the current time and returns it
     var date = new Date();
     var mins = date.getMinutes();
     var hours = date.getHours();
