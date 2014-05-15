@@ -61,7 +61,6 @@ function GetAlarms()
 			c.setAttribute('id', results.rows.item(i).id);
 			d.setAttribute('id', results.rows.item(i).id);
 			
-			var x=document.createTextNode(results.rows.item(i).id);
 			var t=document.createTextNode(" " + results.rows.item(i).title);
 			var q=document.createTextNode(results.rows.item(i).type);
 			var w=document.createTextNode(results.rows.item(i).date);
@@ -72,7 +71,6 @@ function GetAlarms()
 			c.appendChild(w);
 			d.appendChild(e);
 			
-			newDiv.appendChild(x);
 			newDiv.appendChild(a);
 			newDiv.appendChild(b);
 			newDiv.appendChild(c);
