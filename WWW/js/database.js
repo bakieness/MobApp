@@ -41,9 +41,9 @@ function onDeviceReady() {
 			
 						//this for loop will create a notification if the date and time are the same as any database entries	
 						for (i = 0; i < len; i++){
-							alert("4");
 							if (results.rows.item(i).time === currentTime && results.rows.item(i).date === currentDate)
 							{
+								alert("4");
 								window.localStorage.setItem("dataid", results.rows.item(i).title);
 								navigator.notification.alert(
 									'Alarm Done!', 						// message
