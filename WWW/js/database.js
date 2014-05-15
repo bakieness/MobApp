@@ -184,7 +184,9 @@ function setid(div)
 	$(document.body).click(function(evt)
 	{
 		var clicked = evt.target;
+		alert(clicked);
 		var currentID = clicked.id;
+		alert(currentID);
 		var text = $.trim($('#' + currentID).text()),
     	word = text.split(' ');
     	dataid = word[0];
