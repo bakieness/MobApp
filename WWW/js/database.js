@@ -335,8 +335,18 @@ function time()
 {
 	//get the current time and returns it
     var date = new Date();
-    var mins = date.getMinutes();
+    var mins = date.getMinutes();	
     var hours = date.getHours();
+
+	if(mins<10)
+	{
+		mins='0'+mins
+	}
+	if(hours<10)
+	{
+		hours='0'+hours
+	}
+
 	var currentTime = hours + ":" + mins;
 	return currentTime;
 }
