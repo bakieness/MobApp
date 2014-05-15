@@ -187,9 +187,10 @@ function setid(div)
 		alert(clicked);
 		var currentID = clicked.id;
 		alert(currentID);
-		var text = $.trim($('#' + currentID).text()),
-    	word = text.split(' ');
-    	dataid = word[0];
+//		var text = $.trim($('#' + currentID).text()),
+//    	word = text.split(' ');
+//    	dataid = word[0];
+		dataid = currentID;
 		dataid = parseInt(dataid);
 		if (typeof dataid === 'number')
 		{
