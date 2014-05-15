@@ -20,12 +20,14 @@ function onDeviceReady() {
 	//database query to create the table to store alarms
 	db.transaction(function(tx) 
 		{
+			alert("1");
 			//simple SQL script to create table
 			tx.executeSql('CREATE TABLE IF NOT EXISTS ALARMS (id INTEGER PRIMARY KEY ASC, title, type, date, time, repeat)');
-			
+			alert("2");
 			//checks to see if a notification is needed for any alarm every minute
 			window.setInterval(function() 
 			{
+				alert("3");
 				//gets the current date and time
 				var currentTime = time();
 				var currentDate = date();
