@@ -10,50 +10,50 @@ document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
 	db = window.openDatabase("myDB2", "1.0", "myDb", 1024 * 1024);
 	
-	//database query to create the table to store alarms
-	db.transaction(function(tx) 
-		{
-			//simple SQL script to create table
-			tx.executeSql('CREATE TABLE IF NOT EXISTS ALARMS (id INTEGER PRIMARY KEY ASC, title, type, date, time, repeat)');
-			
-			//Once table is created this function is called.
-			//This function must be here to gurantee it runs after database transactionthis is because database transactions are asynchronous.
-			GetAlarms();
-		});
-	
 	//if statment which sets the variable i as 0 if this is the firts time the app is run	
 	if (window.localStorage.getItem("new") === null)
 		{
 			window.localStorage.setItem("new", "notnow");
 			window.localStorage.setItem("i", 0);
 		}
-		
-	//checks to see if a notification is needed for any alarm every minute
-	window.setInterval(function() 
-	{
-		//gets the current date and time
-		var currentTime = time();
-		var currentDate = date();
 	
-		//database transaction that gets all rows from the database
-		db.transaction(function(tx) {
-			tx.executeSql('SELECT * FROM ALARMS', [], function (tx, results) {
-				var len = results.rows.length, i;
-				
-				//this for loop will create a notification if the date and time are the same as any database entries	
-				for (i = 0; i < len; i++){
-					if (results.rows.item(i).time === currentTime && results.rows.item(i).date === currentDate)
-					{
-						window.localStorage.setItem("dataid", results.rows.item(i).title);
-						navigator.notification.alert(
-							'Alarm Done!', 						// message
-							alertDismiss,         				// callback
-							results.rows.item(i).title,         // title
-							'Done'								// buttonName
-					)}}
-				});
-			});
-	}, 60000);
+	//database query to create the table to store alarms
+	db.transaction(function(tx) 
+		{
+			//simple SQL script to create table
+			tx.executeSql('CREATE TABLE IF NOT EXISTS ALARMS (id INTEGER PRIMARY KEY ASC, title, type, date, time, repeat)');
+			
+			//checks to see if a notification is needed for any alarm every minute
+			window.setInterval(function() 
+			{
+				//gets the current date and time
+				var currentTime = time();
+				var currentDate = date();
+	
+				//database transaction that gets all rows from the database
+				db.transaction(function(tx) {
+					tx.executeSql('SELECT * FROM ALARMS', [], function (tx, results) {
+						var len = results.rows.length, i;
+					
+						//this for loop will create a notification if the date and time are the same as any database entries	
+						for (i = 0; i < len; i++){
+							if (results.rows.item(i).time === currentTime && results.rows.item(i).date === currentDate)
+							{
+								window.localStorage.setItem("dataid", results.rows.item(i).title);
+								navigator.notification.alert(
+									'Alarm Done!', 						// message
+									alertDismiss,         				// callback
+									results.rows.item(i).title,         // title
+									'Done'								// buttonName
+							)}}
+						});
+					});
+			}, 60000);
+			
+			//Once table is created this function is called.
+			//This function must be here to gurantee it runs after database transactionthis is because database transactions are asynchronous.
+			GetAlarms();
+		});
 }
 
 //this function is called by the add alarm page
