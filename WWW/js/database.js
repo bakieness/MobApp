@@ -29,6 +29,9 @@ function onDeviceReady() {
 				//gets the current date and time
 				var currentTime = time();
 				var currentDate = date();
+				
+				alert(currentTime);
+				alert(currentDate);
 	
 				//database transaction that gets all rows from the database
 				db.transaction(function(tx) {
