@@ -296,9 +296,8 @@ function alertDismiss()
 					}
 					else
 					{
-						var now = new Date();
-						now.setDate(now.getDate()+7);
-						alert(now);
+						var newDate = datePlusWeek();
+						alert(newDate);
 					}
 				}
 			}
@@ -330,6 +329,221 @@ function date()
 	
 	//returns the date
 	return today;
+}
+
+function datePlusWeek()
+{
+	var date = new Date();
+	var dd = today.getDate();
+	var mm = today.getMonth()+1; //January is 0
+	var yyyy = today.getFullYear();
+	
+	//if the month or day is more than 10 a 0 is added to the start
+	if(dd<10) 
+	{
+		dd='0'+dd
+	} 
+	if(mm<10) 
+	{
+		mm='0'+mm
+	} 
+	
+	switch (mm)
+	{
+		case "01":
+			if (dd < 25)
+			{
+				dd + 7;
+			}
+			else
+			{
+				mm + 1;
+				(dd + 7) - 31;
+			}
+			//sets date format
+			today = yyyy+'-'+mm+'-'+dd;
+	
+			//returns the date
+			return today;
+			break;
+		case "02":
+			if (dd < 22)
+			{
+				dd + 7;
+			}
+			else
+			{
+				mm + 1;
+				(dd + 7) - 28;
+			}
+			//sets date format
+			today = yyyy+'-'+mm+'-'+dd;
+	
+			//returns the date
+			return today;
+			break;
+		case "03":
+			if (dd < 25)
+			{
+				dd + 7;
+			}
+			else
+			{
+				mm + 1;
+				(dd + 7) - 31;
+			}
+			//sets date format
+			today = yyyy+'-'+mm+'-'+dd;
+	
+			//returns the date
+			return today;
+			break;
+		case "04":
+		if (dd < 24)
+			{
+				dd + 7;
+			}
+			else
+			{
+				mm + 1;
+				(dd + 7) - 30;
+			}
+			//sets date format
+			today = yyyy+'-'+mm+'-'+dd;
+	
+			//returns the date
+			return today;
+			break;
+		case "05":
+		if (dd < 25)
+			{
+				dd + 7;
+			}
+			else
+			{
+				mm + 1;
+				(dd + 7) - 31;
+			}
+			//sets date format
+			today = yyyy+'-'+mm+'-'+dd;
+	
+			//returns the date
+			return today;
+			break;
+		case "06":
+		if (dd < 24)
+			{
+				dd + 7;
+			}
+			else
+			{
+				mm + 1;
+				(dd + 7) - 30;
+			}
+			//sets date format
+			today = yyyy+'-'+mm+'-'+dd;
+	
+			//returns the date
+			return today;
+			break;
+		case "07":
+		if (dd < 25)
+			{
+				dd + 7;
+			}
+			else
+			{
+				mm + 1;
+				(dd + 7) - 31;
+			}
+			//sets date format
+			today = yyyy+'-'+mm+'-'+dd;
+	
+			//returns the date
+			return today;
+			break;
+		case "08":
+		if (dd < 24)
+			{
+				dd + 7;
+			}
+			else
+			{
+				mm + 1;
+				(dd + 7) - 30;
+			}
+			//sets date format
+			today = yyyy+'-'+mm+'-'+dd;
+	
+			//returns the date
+			return today;
+			break;
+		case "09":
+		if (dd < 24)
+			{
+				dd + 7;
+			}
+			else
+			{
+				mm + 1;
+				(dd + 7) - 30;
+			}
+			//sets date format
+			today = yyyy+'-'+mm+'-'+dd;
+	
+			//returns the date
+			return today;
+			break;
+		case "10":
+		if (dd < 25)
+			{
+				dd + 7;
+			}
+			else
+			{
+				mm + 1;
+				(dd + 7) - 31;
+			}
+			//sets date format
+			today = yyyy+'-'+mm+'-'+dd;
+	
+			//returns the date
+			return today;
+			break;
+		case "11":
+		if (dd < 24)
+			{
+				dd + 7;
+			}
+			else
+			{
+				mm + 1;
+				(dd + 7) - 30;
+			}
+			//sets date format
+			today = yyyy+'-'+mm+'-'+dd;
+	
+			//returns the date
+			return today;
+			break;
+		case "12":
+		if (dd < 25)
+			{
+				dd + 7;
+			}
+			else
+			{
+				mm + 1;
+				(dd + 7) - 31;
+				yyyy + 1;
+			}
+			//sets date format
+			today = yyyy+'-'+mm+'-'+dd;
+	
+			//returns the date
+			return today;
+			break;
+	}
 }
 
 //gets the current time of day
