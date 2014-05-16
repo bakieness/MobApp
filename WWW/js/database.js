@@ -281,7 +281,7 @@ function alertDismiss()
 	
 	//database transaction to get all rows in the database 
 	db.transaction(function(tx) {
-		tx.executeSql('SELECT * FROM TEST', [], function (tx, results) {
+		tx.executeSql('SELECT * FROM ALARMS', [], function (tx, results) {
 			var len = results.rows.length, i;
 			alert("alertDismised");
 			
