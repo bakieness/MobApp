@@ -422,14 +422,18 @@ function datePlusWeek()
 			break;
 		
 		case mm="05":
+		alert(dd);
 		if (dd < 25)
 			{
 				dd = dd + 7;
 			}
 			else
 			{
+				alert(mm);
 				mm = mm + 1;
+				alert(mm);
 				dd = (dd + 7) - 31;
+				alert(dd);
 			}
 			//sets date format
 			today = yyyy+'-'+mm+'-'+dd;
