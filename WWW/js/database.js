@@ -595,6 +595,13 @@ function createNotification()
 	    message: 'Alarm Done',
 	    date:    notificationTime,
 		});
+	
+	navigator.notification.alert(
+		'Alarm Done!', 						// message
+		alertDismiss,        				// callback
+		results.rows.item(i).title,         // title
+		'Done'								// buttonName
+		);
 		
-	alertDismiss();
+	//alertDismiss();
 }
