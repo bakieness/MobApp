@@ -43,13 +43,6 @@ function onDeviceReady() {
 								alert("4");
 								window.localStorage.setItem("dataid", results.rows.item(i).id);
 								createNotification();
-								navigator.notification.confirm(
-            						'What do you think of this dialog?',  // message
-            						alertDismess,         // callback
-            						'An example dialog!',            // title
-            						['OK!']                  // buttons
-        						);
-								
 //								navigator.notification.beep(1);
 //								navigator.notification.alert(
 //									'Alarm Done!', 						// message
@@ -600,14 +593,13 @@ function redirect()
 
 function createNotification()
 {
-	var currentSeconds = new Date().getTime(); //current time in milliseconds
-	var notificationTime = new Date(currentSeconds + 3000); //delayed time
+	var now = new Date().getTime(); //current time in milliseconds
+	var notificationTime = new Date(now + 3000); //delayed time
 				
-	window.plugin.notification.local.add({ 
-        							id: 		1,
-        							title: 		"Alarm",
-        							message: 	"Your alarm is done",
-        							date: 		notificationTime, 
-        							badge: 		notification_count++
-							});
+window.plugin.notification.local.add({
+    id:      1,
+    title:   'Reminder',
+    message: 'Dont forget to buy some flowers.',
+    date:    notificationTime
+	});
 }
