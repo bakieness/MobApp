@@ -605,5 +605,5 @@ window.plugin.notification.local.add({
 	badge: 		notification_count++
 	});
 	
-alertDismiss();
+//alertDismiss();
 }
