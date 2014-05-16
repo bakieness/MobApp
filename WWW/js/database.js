@@ -40,7 +40,7 @@ function onDeviceReady() {
 						for (i = 0; i < len; i++){
 							if (results.rows.item(i).time === currentTime && results.rows.item(i).date === currentDate)
 							{
-								window.localStorage.setItem("dataid", results.rows.item(i).title);
+								window.localStorage.setItem("dataid", results.rows.item(i).id);
 								navigator.notification.beep(1);
 								navigator.notification.alert(
 									'Alarm Done!', 						// message
