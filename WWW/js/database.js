@@ -31,18 +31,20 @@ function onDeviceReady() {
 				//gets the current date and time
 				var currentDate = date();
 				var currentTime = time();
+				alert("1");
 				var currentSeconds = new Date().getTime(); //current time
         		var notificationTime = new Date(currentTime + 3000); //delayed time
-				
+				alert("2");
 				//database transaction that gets all rows from the database
 				db.transaction(function(tx) {
 					tx.executeSql('SELECT * FROM ALARMS', [], function (tx, results) {
 						var len = results.rows.length, i;
-			
+						alert("3");
 						//this for loop will create a notification if the date and time are the same as any database entries	
 						for (i = 0; i < len; i++){
 							if (results.rows.item(i).time === currentTime && results.rows.item(i).date === currentDate)
 							{
+								alert("4");
 								window.localStorage.setItem("dataid", results.rows.item(i).id);
 								navigator.notification.beep(1);
 //								window.plugin.notification.local.add({ 
@@ -57,7 +59,6 @@ function onDeviceReady() {
 									alertDismiss,        				// callback
 									results.rows.item(i).title,         // title
 									'Done'							// buttonName
-									//alertDismiss()
 							)}}
 						});
 					});
