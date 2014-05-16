@@ -279,17 +279,16 @@ function alertDismiss()
 	//gets current date and time
 	var currentTime = time();
 	var currentDate = date();
-	alert("1");
+	
 	//database transaction to get all rows in the database 
 	db.transaction(function(tx) {
 		tx.executeSql('SELECT * FROM ALARMS', [], function (tx, results) {
 			var len = results.rows.length, i;
-			alert("2");
+
 			//this for loop gets all results where the date and time are the same
 			for (i = 0; i < len; i++){
 				if (results.rows.item(i).date === currentDate && results.rows.item(i).time === currentTime)
 				{
-					alert("3");
 					//if the alarm has no repeat the alarm will be deleted
 					//otherwise the date is incremented by a week and the database updated
 					if (results.rows.item(i).repeat === 'Once')
@@ -298,9 +297,10 @@ function alertDismiss()
 					}
 					else if (results.rows.item(i).repeat !== 'Once')
 					{
-						alert("4");
 						var newDate = datePlusWeek();
-						alert(newDate);
+						db.transaction(function(tx) {
+							tx.executeSql("UPDATE ALARMS SET date=? WHERE date=?", [newDate, currentDate])
+						});
 					}
 				}
 			}
@@ -351,8 +351,6 @@ function datePlusWeek()
 		mm='0'+mm
 	} 
 	
-	alert(mm);
-	
 	switch (mm)
 	{
 		case "01":
@@ -372,7 +370,7 @@ function datePlusWeek()
 			return today;
 			break;
 		
-		case mm=="02":
+		case "02":
 			if (dd < 22)
 			{
 				dd + 7;
@@ -389,7 +387,7 @@ function datePlusWeek()
 			return today;
 			break;
 		
-		case mm=="03":
+		case "03":
 			if (dd < 25)
 			{
 				dd + 7;
@@ -406,7 +404,7 @@ function datePlusWeek()
 			return today;
 			break;
 		
-		case mm=="04":
+		case "04":
 		if (dd < 24)
 			{
 				dd + 7;
@@ -424,28 +422,23 @@ function datePlusWeek()
 			break;
 		
 		case "05":
-		alert(dd);
 		if (dd < 25)
 			{
 				dd = dd + 7;
 			}
 			else
 			{
-				alert(mm);
 				mm = mm + 1;
-				alert(mm);
 				dd = (dd + 7) - 31;
-				alert(dd);
 			}
 			//sets date format
 			today = yyyy+'-'+mm+'-'+dd;
-			alert(today);
 	
 			//returns the date
 			return today;
 			break;
 		
-		case mm=="06":
+		case "06":
 		if (dd < 24)
 			{
 				dd + 7;
@@ -462,7 +455,7 @@ function datePlusWeek()
 			return today;
 			break;
 		
-		case mm=="07":
+		case "07":
 		if (dd < 25)
 			{
 				dd + 7;
@@ -479,7 +472,7 @@ function datePlusWeek()
 			return today;
 			break;
 		
-		case mm=="08":
+		case "08":
 		if (dd < 24)
 			{
 				dd + 7;
@@ -496,7 +489,7 @@ function datePlusWeek()
 			return today;
 			break;
 		
-		case mm=="09":
+		case "09":
 		if (dd < 24)
 			{
 				dd + 7;
@@ -513,7 +506,7 @@ function datePlusWeek()
 			return today;
 			break;
 		
-		case mm=="10":
+		case "10":
 		if (dd < 25)
 			{
 				dd + 7;
@@ -530,7 +523,7 @@ function datePlusWeek()
 			return today;
 			break;
 		
-		case mm=="11":
+		case "11":
 		if (dd < 24)
 			{
 				dd + 7;
@@ -547,7 +540,7 @@ function datePlusWeek()
 			return today;
 			break;
 			
-		case mm=="12":
+		case "12":
 		if (dd < 25)
 			{
 				dd + 7;
