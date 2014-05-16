@@ -28,19 +28,16 @@ function onDeviceReady() {
 			//checks to see if a notification is needed for any alarm every minute
 			window.setInterval(function() 
 			{
-				alert("0");
-				//gets the current date and time
-				var currentDate = date();
-				var currentTime = time();
-				alert("1");
-				var currentSeconds = new Date().getTime(); //current time
+				var currentDate = date(); //current date in yyyy/mm/dd format
+				var currentTime = time(); //current time in hh:mm format
+				var currentSeconds = new Date().getTime(); //current time in milliseconds
         		var notificationTime = new Date(currentTime + 3000); //delayed time
-				alert("2");
+
 				//database transaction that gets all rows from the database
 				db.transaction(function(tx) {
 					tx.executeSql('SELECT * FROM ALARMS', [], function (tx, results) {
 						var len = results.rows.length, i;
-						alert("3");
+						
 						//this for loop will create a notification if the date and time are the same as any database entries	
 						for (i = 0; i < len; i++){
 							if (results.rows.item(i).time === currentTime && results.rows.item(i).date === currentDate)
@@ -48,13 +45,13 @@ function onDeviceReady() {
 								alert("4");
 								window.localStorage.setItem("dataid", results.rows.item(i).id);
 								navigator.notification.beep(1);
-//								window.plugin.notification.local.add({ 
-//        							id: 		1,
-//        							title: 		"Alarm",
-//        							message: 	"Your alarm is done",
-//        							date: 		notificationTime, 
-//        							badge: 		notification_count++
-//								})
+								window.plugin.notification.local.add({ 
+        							id: 		1,
+        							title: 		"Alarm",
+        							message: 	"Your alarm is done",
+        							date: 		notificationTime, 
+        							badge: 		notification_count++
+								})
 								navigator.notification.alert(
 									'Alarm Done!', 						// message
 									alertDismiss,        				// callback
