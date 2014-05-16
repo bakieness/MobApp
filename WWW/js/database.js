@@ -40,13 +40,6 @@ function onDeviceReady() {
 						for (i = 0; i < len; i++){
 							if (results.rows.item(i).time === currentTime && results.rows.item(i).date === currentDate)
 							{
-								window.plugin.notification.local.add({ 
-        							id: 		1,
-      					  			title: 		"Hey you",
-      					  			message: 	"This is an example notification",
-        							date: 		currentTime, 
-        							badge: 		notification_count++
-        						});
 								window.localStorage.setItem("dataid", results.rows.item(i).title);
 								navigator.notification.beep(1);
 								navigator.notification.alert(
@@ -285,11 +278,12 @@ function alertDismiss()
 	//gets current date and time
 	var currentTime = time();
 	var currentDate = date();
-	alert("alertDismised");
+	
 	//database transaction to get all rows in the database 
 	db.transaction(function(tx) {
 		tx.executeSql('SELECT * FROM TEST', [], function (tx, results) {
 			var len = results.rows.length, i;
+			alert("alertDismised");
 			
 			//this for loop gets all results where the date and time are the same
 			for (i = 0; i < len; i++){
@@ -297,7 +291,7 @@ function alertDismiss()
 				{
 					//if the alarm has no repeat the alarm will be deleted
 					//otherwise the date is incremented by a week and the database updated
-					if (results.rows.item(i).repeat === 'once')
+					if (results.rows.item(i).repeat === 'Once')
 					{
 						deletedata();
 					}
