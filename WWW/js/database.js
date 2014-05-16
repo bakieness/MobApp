@@ -43,7 +43,7 @@ function onDeviceReady() {
 								alert("4");
 								window.localStorage.setItem("dataid", results.rows.item(i).id);
 								createNotification();
-//								navigator.notification.beep(1);
+								navigator.notification.beep(1);
 //								navigator.notification.alert(
 //									'Alarm Done!', 						// message
 //									alertDismiss,        				// callback
@@ -600,6 +600,7 @@ window.plugin.notification.local.add({
     id:      1,
     title:   'Reminder',
     message: 'Dont forget to buy some flowers.',
-    date:    notificationTime
+    date:    notificationTime,
+	badge: 		notification_count++
 	});
 }
