@@ -46,7 +46,7 @@ function onDeviceReady() {
 						}
 						});
 					});
-			}, 5000);
+			}, 60 * 1000);
 			
 			//Once table is created this function is called.
 			//This function must be here to gurantee it runs after database transactionthis is because database transactions are asynchronous.
