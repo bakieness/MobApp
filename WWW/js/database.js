@@ -40,17 +40,8 @@ function onDeviceReady() {
 						for (i = 0; i < len; i++){
 							if (results.rows.item(i).time === currentTime && results.rows.item(i).date === currentDate)
 							{
-								alert("4");
 								window.localStorage.setItem("dataid", results.rows.item(i).id);
 								createNotification();
-								
-//								navigator.notification.beep(1);
-//								navigator.notification.alert(
-//									'Alarm Done!', 						// message
-//									alertDismiss,        				// callback
-//									results.rows.item(i).title,         // title
-//									'Done'								// buttonName
-//								);
 							}
 						}
 						});
@@ -597,12 +588,13 @@ function createNotification()
 	var now = new Date().getTime(); //current time in milliseconds
 	var notificationTime = new Date(now + 3000); //delayed time
 				
-window.plugin.notification.local.add({
-    id:      1,
-    title:   'Reminder',
-    message: 'Dont forget to buy some flowers.',
-    date:    notificationTime,
-	});
-	
-alertDismiss();
+	//uses a plugin to create notifications for alarms
+	window.plugin.notification.local.add({
+	    id:      1,
+	    title:   'Reminder',
+	    message: 'Alarm Done',
+	    date:    notificationTime,
+		});
+		
+	alertDismiss();
 }
