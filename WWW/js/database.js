@@ -42,7 +42,7 @@ function onDeviceReady() {
 							{
 								alert("4");
 								window.localStorage.setItem("dataid", results.rows.item(i).id);
-								
+								createNotification();
 								navigator.notification.confirm(
             						'What do you think of this dialog?',  // message
             						alertDismess,         // callback
@@ -57,7 +57,6 @@ function onDeviceReady() {
 //									results.rows.item(i).title,         // title
 //									'Done'								// buttonName
 //								);
-								createNotification();
 							}
 						}
 						});
