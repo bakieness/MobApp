@@ -279,16 +279,17 @@ function alertDismiss()
 	//gets current date and time
 	var currentTime = time();
 	var currentDate = date();
-	
+	alert("1");
 	//database transaction to get all rows in the database 
 	db.transaction(function(tx) {
 		tx.executeSql('SELECT * FROM ALARMS', [], function (tx, results) {
 			var len = results.rows.length, i;
-			
+			alert("2");
 			//this for loop gets all results where the date and time are the same
 			for (i = 0; i < len; i++){
 				if (results.rows.item(i).date === currentDate && results.rows.item(i).time === currentTime)
 				{
+					alert("2");
 					//if the alarm has no repeat the alarm will be deleted
 					//otherwise the date is incremented by a week and the database updated
 					if (results.rows.item(i).repeat === 'Once')
