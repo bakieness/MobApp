@@ -51,7 +51,7 @@ function onDeviceReady() {
         							message: 	"Your alarm is done",
         							date: 		notificationTime, 
         							badge: 		notification_count++
-       					 		});
+								})
 								navigator.notification.alert(
 									'Alarm Done!', 						// message
 									alertDismiss,        				// callback
