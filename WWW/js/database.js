@@ -13,6 +13,7 @@ function onDeviceReady() {
 	//if statment which sets the variable i as 0 if this is the firts time the app is run	
 	if (window.localStorage.getItem("new") === null)
 		{
+			var notification_count=0;
 			window.localStorage.setItem("new", "notnow");
 			window.localStorage.setItem("i", 0);
 		}
@@ -28,8 +29,10 @@ function onDeviceReady() {
 			window.setInterval(function() 
 			{
 				//gets the current date and time
-				var currentTime = time();
 				var currentDate = date();
+				var currentTime = time();
+				var currentSeconds = new Date().getTime(); //current time
+        		var notificationTime = new Date(currentTime + 3000); //delayed time
 				
 				//database transaction that gets all rows from the database
 				db.transaction(function(tx) {
@@ -42,6 +45,13 @@ function onDeviceReady() {
 							{
 								window.localStorage.setItem("dataid", results.rows.item(i).id);
 								navigator.notification.beep(1);
+								window.plugin.notification.local.add({ 
+        							id: 		1,
+        							title: 		"Alarm",
+        							message: 	"Your alarm is done",
+        							date: 		notificationTime, 
+        							badge: 		notification_count++
+       					 		});
 								navigator.notification.alert(
 									'Alarm Done!', 						// message
 									alertDismiss,        				// callback
