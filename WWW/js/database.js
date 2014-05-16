@@ -28,6 +28,7 @@ function onDeviceReady() {
 			//checks to see if a notification is needed for any alarm every minute
 			window.setInterval(function() 
 			{
+				alert("0");
 				//gets the current date and time
 				var currentDate = date();
 				var currentTime = time();
