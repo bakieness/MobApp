@@ -44,13 +44,13 @@ function onDeviceReady() {
 							{
 								alert("4");
 								window.localStorage.setItem("dataid", results.rows.item(i).id);
-								navigator.notification.beep(1);
-								navigator.notification.alert(
-									'Alarm Done!', 						// message
-									alertDismiss,        				// callback
-									results.rows.item(i).title,         // title
-									'Done'								// buttonName
-								);
+//								navigator.notification.beep(1);
+//								navigator.notification.alert(
+//									'Alarm Done!', 						// message
+//									alertDismiss,        				// callback
+//									results.rows.item(i).title,         // title
+//									'Done'								// buttonName
+//								);
 								window.plugin.notification.local.add({ 
         							id: 		1,
         							title: 		"Alarm",
