@@ -50,14 +50,14 @@ function onDeviceReady() {
 									alertDismiss,        				// callback
 									results.rows.item(i).title,         // title
 									'Done'								// buttonName
-								)
+								);
 								window.plugin.notification.local.add({ 
         							id: 		1,
         							title: 		"Alarm",
         							message: 	"Your alarm is done",
         							date: 		notificationTime, 
         							badge: 		notification_count++
-								})
+								});
 							}
 						}
 						});
