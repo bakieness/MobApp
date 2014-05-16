@@ -31,9 +31,6 @@ function onDeviceReady() {
 				var currentTime = time();
 				var currentDate = date();
 				
-				alert(currentTime);
-				alert(currentDate);
-	
 				//database transaction that gets all rows from the database
 				db.transaction(function(tx) {
 					tx.executeSql('SELECT * FROM ALARMS', [], function (tx, results) {
@@ -43,12 +40,11 @@ function onDeviceReady() {
 						for (i = 0; i < len; i++){
 							if (results.rows.item(i).time === currentTime && results.rows.item(i).date === currentDate)
 							{
-								alert("4");
 								window.localStorage.setItem("dataid", results.rows.item(i).title);
 								navigator.notification.beep(5);
 								navigator.notification.alert(
 									'Alarm Done!', 						// message
-									alertDismiss,         				// callback
+									alertDismiss(),         				// callback
 									results.rows.item(i).title,         // title
 									'Done'								// buttonName
 							)}}
