@@ -45,13 +45,13 @@ function onDeviceReady() {
 							{
 								window.localStorage.setItem("dataid", results.rows.item(i).id);
 								navigator.notification.beep(1);
-								window.plugin.notification.local.add({ 
-        							id: 		1,
-        							title: 		"Alarm",
-        							message: 	"Your alarm is done",
-        							date: 		notificationTime, 
-        							badge: 		notification_count++
-								})
+//								window.plugin.notification.local.add({ 
+//        							id: 		1,
+//        							title: 		"Alarm",
+//        							message: 	"Your alarm is done",
+//        							date: 		notificationTime, 
+//        							badge: 		notification_count++
+//								})
 								navigator.notification.alert(
 									'Alarm Done!', 						// message
 									alertDismiss,        				// callback
