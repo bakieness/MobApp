@@ -44,10 +44,10 @@ function onDeviceReady() {
 								navigator.notification.beep(1);
 								navigator.notification.alert(
 									'Alarm Done!', 						// message
-									//alertDismiss()        				// callback
+									alertDismiss,        				// callback
 									results.rows.item(i).title,         // title
-									'Done',								// buttonName
-									alertDismiss()
+									'Done'							// buttonName
+									//alertDismiss()
 							)}}
 						});
 					});
