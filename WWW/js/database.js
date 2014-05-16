@@ -353,7 +353,7 @@ function datePlusWeek()
 	
 	switch (mm)
 	{
-		case "01":
+		case 0:
 			if (dd < 25)
 			{
 				dd + 7;
@@ -369,7 +369,8 @@ function datePlusWeek()
 			//returns the date
 			return today;
 			break;
-		case "02":
+		
+		case 1:
 			if (dd < 22)
 			{
 				dd + 7;
@@ -385,7 +386,8 @@ function datePlusWeek()
 			//returns the date
 			return today;
 			break;
-		case "03":
+		
+		case 2:
 			if (dd < 25)
 			{
 				dd + 7;
@@ -401,7 +403,8 @@ function datePlusWeek()
 			//returns the date
 			return today;
 			break;
-		case "04":
+		
+		case 3:
 		if (dd < 24)
 			{
 				dd + 7;
@@ -417,7 +420,8 @@ function datePlusWeek()
 			//returns the date
 			return today;
 			break;
-		case "05":
+		
+		case 4:
 		if (dd < 25)
 			{
 				dd + 7;
@@ -433,7 +437,8 @@ function datePlusWeek()
 			//returns the date
 			return today;
 			break;
-		case "06":
+		
+		case 5:
 		if (dd < 24)
 			{
 				dd + 7;
@@ -449,7 +454,8 @@ function datePlusWeek()
 			//returns the date
 			return today;
 			break;
-		case "07":
+		
+		case 6:
 		if (dd < 25)
 			{
 				dd + 7;
@@ -465,7 +471,8 @@ function datePlusWeek()
 			//returns the date
 			return today;
 			break;
-		case "08":
+		
+		case 7:
 		if (dd < 24)
 			{
 				dd + 7;
@@ -481,7 +488,8 @@ function datePlusWeek()
 			//returns the date
 			return today;
 			break;
-		case "09":
+		
+		case 8:
 		if (dd < 24)
 			{
 				dd + 7;
@@ -497,7 +505,8 @@ function datePlusWeek()
 			//returns the date
 			return today;
 			break;
-		case "10":
+		
+		case 9:
 		if (dd < 25)
 			{
 				dd + 7;
@@ -513,7 +522,8 @@ function datePlusWeek()
 			//returns the date
 			return today;
 			break;
-		case "11":
+		
+		case 10:
 		if (dd < 24)
 			{
 				dd + 7;
@@ -529,7 +539,8 @@ function datePlusWeek()
 			//returns the date
 			return today;
 			break;
-		case "12":
+			
+		case 11:
 		if (dd < 25)
 			{
 				dd + 7;
