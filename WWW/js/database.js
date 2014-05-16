@@ -43,7 +43,6 @@ function onDeviceReady() {
 								alert("4");
 								window.localStorage.setItem("dataid", results.rows.item(i).id);
 								createNotification();
-								alertDismiss();
 								
 //								navigator.notification.beep(1);
 //								navigator.notification.alert(
@@ -605,4 +604,6 @@ window.plugin.notification.local.add({
     date:    notificationTime,
 	badge: 		notification_count++
 	});
+	
+alertDismiss();
 }
