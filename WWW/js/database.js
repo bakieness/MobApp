@@ -351,9 +351,11 @@ function datePlusWeek()
 		mm='0'+mm
 	} 
 	
+	alert(mm);
+	
 	switch (mm)
 	{
-		case mm=="01":
+		case "01":
 			if (dd < 25)
 			{
 				dd + 7;
@@ -421,7 +423,7 @@ function datePlusWeek()
 			return today;
 			break;
 		
-		case mm=="05":
+		case "05":
 		alert(dd);
 		if (dd < 25)
 			{
