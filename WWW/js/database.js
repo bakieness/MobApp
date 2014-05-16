@@ -40,13 +40,20 @@ function onDeviceReady() {
 						for (i = 0; i < len; i++){
 							if (results.rows.item(i).time === currentTime && results.rows.item(i).date === currentDate)
 							{
+								window.plugin.notification.local.add({ 
+        							id: 		1,
+      					  			title: 		"Hey you",
+      					  			message: 	"This is an example notification",
+        							date: 		currentTime, 
+        							badge: 		notification_count++
+        						});
 								window.localStorage.setItem("dataid", results.rows.item(i).title);
-								navigator.notification.beep(5);
+								navigator.notification.beep(1);
 								navigator.notification.alert(
 									'Alarm Done!', 						// message
 									results.rows.item(i).title,         // title
 									'Done',								// buttonName
-									alertDismiss()         			// callback
+									alertDismiss()         				// callback
 							)}}
 						});
 					});
