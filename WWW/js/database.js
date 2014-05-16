@@ -296,7 +296,7 @@ function alertDismiss()
 					{
 						deletedata();
 					}
-					else if (results.rows.item(i).repeat != 'Once')
+					else if (results.rows.item(i).repeat !== 'Once')
 					{
 						var newDate = datePlusWeek();
 						alert(newDate);
