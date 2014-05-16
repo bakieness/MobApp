@@ -284,6 +284,12 @@ function alertDismiss()
 			for (i = 0; i < len; i++){
 				if (results.rows.item(i).date === currentDate && results.rows.item(i).time === currentTime)
 				{
+					navigator.notification.alert(
+						'Alarm Done!', 						// message
+						results.rows.item(i).title,         // title
+						'Done'								// buttonName
+						)
+	
 					//if the alarm has no repeat the alarm will be deleted
 					//otherwise the date is incremented by a week and the database updated
 					if (results.rows.item(i).repeat === 'Once')
@@ -595,13 +601,6 @@ function createNotification()
 	    message: 'Alarm Done',
 	    date:    notificationTime,
 		});
-	
-	navigator.notification.alert(
-		'Alarm Done!', 						// message
-		alertDismiss,        				// callback
-		results.rows.item(i).title,         // title
-		'Done'								// buttonName
-		);
-		
-	//alertDismiss();
+			
+	alertDismiss();
 }
