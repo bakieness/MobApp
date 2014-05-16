@@ -299,7 +299,7 @@ function alertDismiss()
 					{
 						var newDate = datePlusWeek();
 						db.transaction(function(tx) {
-							tx.executeSql("UPDATE ALARMS SET date=? WHERE date=?", [newDate, currentDate])
+							tx.executeSql("UPDATE ALARMS SET date=? WHERE date=? AND time=?", [newDate, currentDate, currentTime])
 						});
 					}
 				}
