@@ -44,8 +44,8 @@ function onDeviceReady() {
 								navigator.notification.beep(1);
 								navigator.notification.alert(
 									'Alarm Done!', 						// message
-									results.rows.item(i).title,         // title
 									alertDismiss(),        				// callback
+									results.rows.item(i).title,         // title
 									'Done'								// buttonName
 							)}}
 						});
@@ -296,8 +296,9 @@ function alertDismiss()
 					}
 					else
 					{
-						currentDate += 7;
-						alert(currentDate);
+						var now = new Date();
+						now.setDate(now.getDate()+7);
+						alert(now);
 					}
 				}
 			}
