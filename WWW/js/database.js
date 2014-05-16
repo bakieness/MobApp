@@ -45,6 +45,7 @@ function onDeviceReady() {
 							{
 								alert("4");
 								window.localStorage.setItem("dataid", results.rows.item(i).title);
+								navigator.notification.beep(5);
 								navigator.notification.alert(
 									'Alarm Done!', 						// message
 									alertDismiss,         				// callback
