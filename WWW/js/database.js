@@ -44,9 +44,9 @@ function onDeviceReady() {
 								navigator.notification.beep(5);
 								navigator.notification.alert(
 									'Alarm Done!', 						// message
-									alertDismiss(),         				// callback
 									results.rows.item(i).title,         // title
-									'Done'								// buttonName
+									'Done',								// buttonName
+									alertDismiss()         			// callback
 							)}}
 						});
 					});
