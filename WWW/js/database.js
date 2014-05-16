@@ -424,12 +424,12 @@ function datePlusWeek()
 		case mm="05":
 		if (dd < 25)
 			{
-				dd + 7;
+				dd = dd + 7;
 			}
 			else
 			{
-				mm + 1;
-				(dd + 7) - 31;
+				mm = mm + 1;
+				dd = (dd + 7) - 31;
 			}
 			//sets date format
 			today = yyyy+'-'+mm+'-'+dd;
