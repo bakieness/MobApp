@@ -282,7 +282,7 @@ function alertDismiss()
 	//gets current date and time
 	var currentTime = time();
 	var currentDate = date();
-	
+	alert("alertDismised");
 	//database transaction to get all rows in the database 
 	db.transaction(function(tx) {
 		tx.executeSql('SELECT * FROM TEST', [], function (tx, results) {
