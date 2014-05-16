@@ -298,6 +298,7 @@ function alertDismiss()
 					}
 					else if (results.rows.item(i).repeat !== 'Once')
 					{
+						alert("4");
 						var newDate = datePlusWeek();
 						alert(newDate);
 					}
