@@ -289,14 +289,14 @@ function alertDismiss()
 			for (i = 0; i < len; i++){
 				if (results.rows.item(i).date === currentDate && results.rows.item(i).time === currentTime)
 				{
-					alert("2");
+					alert("3");
 					//if the alarm has no repeat the alarm will be deleted
 					//otherwise the date is incremented by a week and the database updated
 					if (results.rows.item(i).repeat === 'Once')
 					{
 						deletedata();
 					}
-					else
+					else if (results.rows.item(i).repeat != 'Once')
 					{
 						var newDate = datePlusWeek();
 						alert(newDate);
