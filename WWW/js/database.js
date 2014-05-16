@@ -42,13 +42,21 @@ function onDeviceReady() {
 							{
 								alert("4");
 								window.localStorage.setItem("dataid", results.rows.item(i).id);
-								navigator.notification.beep(1);
-								navigator.notification.alert(
-									'Alarm Done!', 						// message
-									alertDismiss,        				// callback
-									results.rows.item(i).title,         // title
-									'Done'								// buttonName
-								);
+								
+								navigator.notification.confirm(
+            						'What do you think of this dialog?',  // message
+            						alertDismess,         // callback
+            						'An example dialog!',            // title
+            						['OK!']                  // buttons
+        						);
+								
+//								navigator.notification.beep(1);
+//								navigator.notification.alert(
+//									'Alarm Done!', 						// message
+//									alertDismiss,        				// callback
+//									results.rows.item(i).title,         // title
+//									'Done'								// buttonName
+//								);
 								createNotification();
 							}
 						}
