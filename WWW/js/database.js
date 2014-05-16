@@ -433,6 +433,7 @@ function datePlusWeek()
 			}
 			//sets date format
 			today = yyyy+'-'+mm+'-'+dd;
+			alert(today);
 	
 			//returns the date
 			return today;
