@@ -31,7 +31,7 @@ function onDeviceReady() {
 				var currentDate = date(); //current date in yyyy/mm/dd format
 				var currentTime = time(); //current time in hh:mm format
 				var currentSeconds = new Date().getTime(); //current time in milliseconds
-        		var notificationTime = new Date(currentTime + 3000); //delayed time
+        		var notificationTime = new Date(currentSeconds + 3000); //delayed time
 
 				//database transaction that gets all rows from the database
 				db.transaction(function(tx) {
