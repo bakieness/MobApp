@@ -602,8 +602,7 @@ window.plugin.notification.local.add({
     title:   'Reminder',
     message: 'Dont forget to buy some flowers.',
     date:    notificationTime,
-	badge: 		notification_count++
 	});
 	
-//alertDismiss();
+alertDismiss();
 }
