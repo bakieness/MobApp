@@ -30,8 +30,6 @@ function onDeviceReady() {
 			{
 				var currentDate = date(); //current date in yyyy/mm/dd format
 				var currentTime = time(); //current time in hh:mm format
-				var currentSeconds = new Date().getTime(); //current time in milliseconds
-        		var notificationTime = new Date(currentSeconds + 3000); //delayed time
 
 				//database transaction that gets all rows from the database
 				db.transaction(function(tx) {
@@ -44,20 +42,14 @@ function onDeviceReady() {
 							{
 								alert("4");
 								window.localStorage.setItem("dataid", results.rows.item(i).id);
-//								navigator.notification.beep(1);
-//								navigator.notification.alert(
-//									'Alarm Done!', 						// message
-//									alertDismiss,        				// callback
-//									results.rows.item(i).title,         // title
-//									'Done'								// buttonName
-//								);
-								window.plugin.notification.local.add({ 
-        							id: 		1,
-        							title: 		"Alarm",
-        							message: 	"Your alarm is done",
-        							date: 		notificationTime, 
-        							badge: 		notification_count++
-								});
+								navigator.notification.beep(1);
+								navigator.notification.alert(
+									'Alarm Done!', 						// message
+									alertDismiss,        				// callback
+									results.rows.item(i).title,         // title
+									'Done'								// buttonName
+								);
+								createNotification();
 							}
 						}
 						});
@@ -597,4 +589,18 @@ function time()
 function redirect()
 {
 	window.location = 'index.html';
+}
+
+function createNotification()
+{
+	var currentSeconds = new Date().getTime(); //current time in milliseconds
+	var notificationTime = new Date(currentSeconds + 3000); //delayed time
+				
+	window.plugin.notification.local.add({ 
+        							id: 		1,
+        							title: 		"Alarm",
+        							message: 	"Your alarm is done",
+        							date: 		notificationTime, 
+        							badge: 		notification_count++
+							});
 }
