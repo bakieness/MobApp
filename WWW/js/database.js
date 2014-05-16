@@ -45,8 +45,8 @@ function onDeviceReady() {
 								navigator.notification.alert(
 									'Alarm Done!', 						// message
 									results.rows.item(i).title,         // title
-									'Done',								// buttonName
-									alertDismiss()         				// callback
+									alertDismiss(),        				// callback
+									'Done'								// buttonName
 							)}}
 						});
 					});
@@ -283,7 +283,6 @@ function alertDismiss()
 	db.transaction(function(tx) {
 		tx.executeSql('SELECT * FROM ALARMS', [], function (tx, results) {
 			var len = results.rows.length, i;
-			alert("alertDismised");
 			
 			//this for loop gets all results where the date and time are the same
 			for (i = 0; i < len; i++){
@@ -295,7 +294,11 @@ function alertDismiss()
 					{
 						deletedata();
 					}
-					//add stuff here!!!!!!
+					else
+					{
+						currentDate += 7;
+						alert(currentDate);
+					}
 				}
 			}
 		});
